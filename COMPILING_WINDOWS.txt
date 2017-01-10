@@ -1,0 +1,11 @@
+Merge Bathy C/C++ Optimized Conversion README File:
+
+Version:
+	5.0.0
+
+Compilation instructions:
+	1. The file "mergeBathy.sln" is a Microsoft Visual Studio 2010 solution file that can be used to build mergeBathy.  Open this solution file to load all of the mergeBathy project files used in compilation.  
+	2. Using the solution platform dropdown menu, select either "Win32" for a 32 bit version of mergeBathy or "x64" for a 64 bit version of mergeBathy.  (x64 is the default).
+	3. Select "Build Solution" from the build menu to compile the sources into a windows executable.
+	4. The executable will be located in "./x86/Release" for the 32 bit version and "./x64/Release" for the 64 bit version.
+

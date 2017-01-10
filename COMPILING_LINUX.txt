@@ -1,0 +1,10 @@
+Merge Bathy C/C++ Optimized Conversion README File:
+
+Version:
+	5.0.1
+
+Compilation instructions:
+	1. The make file in the current directory will compile all of the sources necessary to create the mergeBathy executable.
+	2. From the current directory type "make mergeBathy BITFLAG=-m32" to compile a 32 bit version of mergeBathy, or "make mergeBathy BITFLAG=-m64 CONFIGFLAG=Release" to compile a 64 bit version of mergeBathy.  (BITFLAG=-m64 is the default).
+	3. The Linux executable will be located in "./x86/Release" for the 32 bit version and "./x64/Release" for the 64 bit version.
+

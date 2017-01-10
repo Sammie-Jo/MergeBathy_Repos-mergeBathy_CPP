@@ -1,0 +1,7 @@
+This is a collection of past debugging arguments used in the Eclipse project properties for MergeBathy.
+Most if not all of these will not work but are kept for reference and why the heck not? :)
+Samantha Zambo
+1/9/15
+MergeBathy 4.0
+====================================================================================================
+/home/sam/Desktop/MergeBathy_Repos/mergeBathy_CPP2/TestOutput-FOUO-ncex500x500 500.0 500.0 hann /home/sam/Desktop/MergeBathy_Repos/TEST_CENTER/Test_Set_03_NAVOTests_Will/Active_Testing_Site/FOUO-Data-TestResults/input_list_file_FOUOTest-FileList_UNIX.txt 150.7849 -23.288 -42.69 -1 -msmooth 1500.0 1500.0 -nmsei -msri -computeOffset -mse -1 -propUncert -1 -kalman -1 -printMatlabMatch -nnInterp -multiThread 0

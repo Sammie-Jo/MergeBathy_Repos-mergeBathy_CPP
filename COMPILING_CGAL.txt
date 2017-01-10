@@ -1,0 +1,11 @@
+CGAL Compile Notes
+
+CGAL 4.2:	(CGAL_Compile_Notes.xps is http://www.cgal.org/windows_installation.html)
+	32(VS10 x86 compiler) and 64 bit (VS10 x64 compiler) Debug and Release Builds were manually done.  
+	The instructions that were followed can be found in CGAL_Compile_Notes.xps or the hyperlink above.
+	The library version used are:
+	(1) Boost_1_53_0
+	(2) QT4: qt-everywhere-opensource-src-4.8.2
+	(3) libQGLViewer 2.5.2
+	(4) CGAL 4.2
+

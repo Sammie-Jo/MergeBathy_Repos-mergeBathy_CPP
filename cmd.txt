@@ -1,0 +1,197 @@
+This is a collection of past debugging arguments used in the visual studios project properties for MergeBathy.
+Most if not all of these will not work but are kept for reference and why the heck not? :)
+Samantha Zambo
+1/9/15
+MergeBathy 5.0
+====================================================================================================
+QUICK TESTS:
+#Monte Carlo = 3
+..\Output_Files\T04C01_CPP_TestOutPut-PORTO_primeMeridianEquator185x185m 1085 hann ..\..\TEST_CENTER\Test_Set_04_ZoneCrossing\input_file_lists\porto_primeMeridianEquator_input_list_ABS.txt 0 0 0 3 -nmsei -msri -nnInterp -multiThread 8 -printMatlabMatch -mse -1
+#Monte Carlo =3 and GMT
+..\Output_Files\T04C01_CPP_TestOutPut-PORTO_primeMeridianEquator185x185m 1085 hann ..\..\TEST_CENTER\Test_Set_04_ZoneCrossing\input_file_lists\porto_primeMeridianEquator_input_list_ABS.txt 0 0 0 3 -nmsei -msri -nnInterp -multiThread 8 -printMatlabMatch -mse -1 -GMTSurface 400 400 ..\Output_Files\T04C01_CPP_TestOutPut-PORTO_primeMeridianEquator185x185m_GMT_xyz 0.1 1 2 -2
+#GMT
+..\Output_Files\T04C01_CPP_TestOutPut-PORTO_primeMeridianEquator185x185m 1085 hann ..\..\TEST_CENTER\Test_Set_04_ZoneCrossing\input_file_lists\porto_primeMeridianEquator_input_list_ABS.txt 0 0 0 -1 -nmsei -msri -nnInterp -multiThread 8 -printMatlabMatch -mse -1 -GMTSurface 400 400 ..\Output_Files\T04C01_CPP_TestOutPut-PORTO_primeMeridianEquator185x185m_GMT_xyz 0.1 1 2 -2
+#MBZ
+..\Output_Files\T04C01_CPP_TestOutPut-PORTO_primeMeridianEquator185x185m 1085 hann ..\..\TEST_CENTER\Test_Set_04_ZoneCrossing\input_file_lists\porto_primeMeridianEquator_input_list_ABS.txt 0 0 0 -1 -nmsei -msri -nnInterp -multiThread 8 -printMatlabMatch -mse -1 -ZGrid 400 400 ..\Output_Files\T04C01_CPP_TestOutPut-PORTO_primeMeridianEquator185x185m_MBZ_xyde 0.1 -2
+#Ensemble
+..\Output_Files\IBCAO_MCUncert_hann 25000 hann ..\..\TEST_CENTER\Test_Set_02_BayesianNetwork_Pauls\Active_Testing_Site\input_file_lists\input_file_list_IBCAO_MCUncert_ABS.txt 2500000 572884 0 -1 -inputInMeters -multiThread 8 -kalman -1 -propUncert -1 -mse -1 -printMatlabMatch -ZGrid 25000 25000 ..\Output_Files\IBCAO_MBZ_xyz 0.1 -2 -GMTSurface 25000 25000 ..\Output_Files\IBCAO_GMT_xyz 0.1 1 2 -2 -ALGSpline 25000 25000 ..\Output_Files\IBCAO_ALG_xyz 0.1 1 2 -2
+..\Output_Files\T04C01_CPP_TestOutPut-PORTO_primeMeridianEquator185x185m 1085 hann ..\..\TEST_CENTER\Test_Set_04_ZoneCrossing\input_file_lists\porto_primeMeridianEquator_input_list_ABS.txt 0 0 0 -1 -nmsei -msri -nnInterp -multiThread 8 -printMatlabMatch -mse -1 -kalman -1 -propUncert -1 -printMatlabMatch -ZGrid 400 400 ..\Output_Files\T04C01_CPP_TestOutPut-PORTO_primeMeridianEquator185x185m_MBZ_xyde 0.1 -2 -GMTSurface 400 400 ..\Output_Files\T04C01_CPP_TestOutPut-PORTO_primeMeridianEquator185x185m_GMT_xyz 0.1 1 2 -2
+
+====================================================================================================
+#CA9L3YIC
+
+..\CA9L3YIC_GMT_MCUncert_hann 300 hann hann hanning boxcar loess quadloess C:\Sams_Files\FY_2012\03Mar_Elmore_MergeBathy\mergeBathy_v3.7.1_Paul - with multi windows\examples\bat_files\input_file_lists\CA9L3YIC_file_list.txt 403363 938481 0 -1 -inputInMeters -ZGrid 2500 2500 ..\Output_Files\CA9L3YIC_MBZ_xyzSAM  0.1 -2 -GMTSurface 300 300 ..\Output_Files\CA9L3YIC_GMT_xyzSAM 0.1 1 2 -2 -multiThread 8
+====================================================================================================
+#NCEX
+
+mod2:
+..\Output_Files\NCEX_GMT_MCUncert_hann 400 hann ..\examples\bat_files\input_file_lists\input_file_list_NCEX_MCUncert_mod2.txt -117.2540396 32.86649436 0 -1 -multiThread 8
+mod:
+..\Output_Files\NCEX_Uncert_50hann 50 hann ..\examples\bat_files\input_file_lists\input_file_list_NCEX_Scripps_MCUncert.txt -117.2540396 32.86649436 0 -1 -multiThread 8
+
+GMTSurface & ALGSpline:
+..\Output_Files\NCEX_GMT_MCUncert_hannDT 400 hann ..\examples\bat_files\input_file_lists\input_file_list_NCEX_MCUncert_mod2.txt -117.2540396 32.86649436 0 -1 -GMTSurface 400 400 ..\NCEX_GMT_xyz 0.1 1 2 -2 -ALGsplineSurface 400 400 ..\Output_Files\NCEX_ALGspline_xyz 0.1 1 2 -2
+
+//A runValidationData.bat test case
+..\Output_Files\NCEX_50x50m_ 50 hann ..\examples\bat_files\input_file_lists\NCEX_input_file_list.txt -117.2540396 32.86649436 0 -1 -nmsei -msri -multiThread 4
+
+====================================================================================================
+#IBCAO
+
+..\Output_Files\IBCAO_MCUncert_hann 2500 hann ..\..\TEST_CENTER\Test_Set_02_BayesianNetwork_Pauls\Active_Testing_Site\input_file_lists\input_file_list_IBCAO_MCUncert.txt 2500000 1347539 0 -1 -inputInMeters -ZGrid 2500 2500 ..\Output_Files\IBCAO_MBZ_xyz 0.1 -2 -GMTSurface 2500 2500 ..\Output_Files\IBCAO_GMT_xyz 0.1 1 2 -2 -ALGsplineSurface 400 400 ..\Output_Files\NCEX_ALGspline_xyz 0.1 1 2 -2 -multiThread 8
+..\Output_Files\IBCAO_MCUncert_hann 2500 hann ..\..\TEST_CENTER\Test_Set_02_BayesianNetwork_Pauls\Active_Testing_Site\input_file_lists\input_file_list_IBCAO_MCUncert_ABS.txt 2503961 -51760 0 -1 -inputInMeters -ZGrid 2500 2500 ..\Output_Files\IBCAO_MBZ_xyz 0.1 -2 -multiThread 8 -kalman -1 -propUncert -1 -mse -1 -printMatlabMatch
+
+====================================================================================================
+#FOUO & Synthetic
+
+..\Output_Files\DavidTestdataAug2013\T1 500.0 500.0 hann ..\DavidTestdataAug2013\merge1_input_list_sam0.txt 150.784957885 -23.2886352539 -42.6999969482 -1 -msmooth 1500.0 1500.0 -multiThread 3 -nmsei -msri -computeOffset
+
+..\Output_Files\SyntheticData_SparseSample_EquatorSpike_BOXCAR 10.0 10.0 boxcar ..\Supplemental_material\Synthetic_Avera\Synthetic_Data_SparseSample_EquatorSpike_xyd.txt 0.00 0.00 -42.6999969482 -1 -msmooth 20.0 20.0 -multiThread 3 -nmsei -msri -computeOffset
+
+..\Output_Files\SyntheticData_SparseSample_EquatorSpike_BOXCAR 10.0 10.0 boxcar ..\bathyMerge++_MATLAB_v4_LOESSvsKALMAN\navoBathyTool\merge10x10_40msmooth_SyntheticAvera_EquatorSpike_xyd.txt 0.00 0.00 0 -1 -msmooth 20.0 20.0 -multiThread 3 -nmsei -msri -computeOffset
+====================================================================================================
+#Ensemble
+..\Output_Files\TestOutput2-SyntheticTest-ncex10x10 10.0 10.0 hann ..\..\TEST_CENTER\Test_Set_03_NAVOTests_Will\Active_Testing_Site\input_file_lists\Synthetic-TestResults\input_file_list_SyntheticTest-FileList_ncex10x10_ABS.txt -92.0 32.2 0 -1 -msmooth 10.0 10.0 -nmsei -msri -multiThread 4 -kalman -1 -propUncert -1 -mse -1 -printMatlabMatch -ZGrid 10 10 ..\Output_Files\TestOutput2-SyntheticTest-ncex10x10_MBZ   1e10 -2
+====================================================================================================
+#Kevin's Test Set 1
+
+#TEST CASE 1: NCEX 50x50
+..\Output_Files\T01C01_CPP_NCEX_50x50m 50 hann ..\..\TEST_CENTER\Test_Set_01_runValidationData_Kevins\Active_Testing_Site\input_file_lists\ncex_input_file_list_ABS.txt -117.2540396 32.86649436 0 -1 -nmsei -msri -multiThread 8 -mse 1 -GMTSurface 400 400
+..\Output_Files\T01C01_CPP_NCEX_50x50m 50 hann ..\..\TEST_CENTER\Test_Set_01_runValidationData_Kevins\Active_Testing_Site\input_file_lists\ncex_input_file_list_ABS.txt -117.2540396 32.86649436 0 -1 -nmsei -msri -multiThread 8 -mse 1 -GMTSurface 400 400 ..\Output_Files\T01C01_CPP_NCEX_50x50m_GMT_xyz 0.1 1 2 -2
+#TEST CASE 2: NCEX 100x100
+..\Output_Files\T01C02_CPP_NCEX_100x100m 100 hann ..\..\TEST_CENTER\Test_Set_01_runValidationData_Kevins\Active_Testing_Site\input_file_lists\ncex_input_file_list_ABS.txt -117.2540396 32.86649436 0 -1 -nmsei -msri -multiThread 8 -mse 1
+
+#TEST CASE 3: DBDBV 0.5
+..\Output_Files\T01C03_CPP_DBDBV_0.5 926.624388704656 hann ..\..\TEST_CENTER\Test_Set_01_runValidationData_Kevins\Active_Testing_Site\input_file_lists\DBDBV_test_input_file_list05_only_ABS.txt -129 49.5 0 -1 -nmsei -msri -multiThread 8 -mse 1
+
+#TEST CASE 4: DBDBV 0.5 NoOverlap
+..\Output_Files\T01C04_CPP_DBDBV_0.5_NoOverlap 926.624388704656 hann ..\..\TEST_CENTER\Test_Set_01_runValidationData_Kevins\Active_Testing_Site\input_file_lists\DBDBV_test_input_file_list_NoOverlap_ABS.txt -129 49.5 0 -1 -nmsei -msri -multiThread 8 -mse 1
+
+#TEST CASE 5: PORTO 185x185
+..\Output_Files\T01C05_CPP_PORTO185x185m 185 hann ..\..\TEST_CENTER\Test_Set_01_runValidationData_Kevins\Active_Testing_Site\input_file_lists\porto_input_list_ABS.txt 8.4 0.0 0 -1 -nmsei -msri -multiThread 8 -mse 1
+..\Output_Files\T01C05ehv_CPP_PORTO185x185m_MBZ400x400 185 hann ..\..\TEST_CENTER\Test_Set_01_runValidationData_Kevins\Active_Testing_Site\input_file_lists\porto_input_list_ABS.txt 8.4 0.0 0 -1 -nmsei -msri -multiThread 8 -mse 1 -ZGrid 400 400 ..\Output_Files\T01C05ehv_CPP_PORTO_400x400_MBZ_xyde 0.1 -2
+
+#TEST CASE 6: MTRENCH 400x400
+..\Output_Files\T01C06_CPP_MTRENCH_400x400m 400 hann ..\..\TEST_CENTER\Test_Set_01_runValidationData_Kevins\Active_Testing_Site\input_file_lists\MTrenchEast_input_file_list_ABS.txt 146 13 0 -1 -nmsei -msri -multiThread 8 -mse 1
+
+
+============================================================================================================================================================
+5/15/14
+NAVO Test PART I
+(1)Scripps:
+..\Output_Files\TestOutput-DavidScripps_ncexScripps-ncex50x50_ 50.0 50.0 hann C:\Sams_Files\FY_2012\03Mar_Elmore_MergeBathy\mergeBathy++_MATLAB_Versions\Sam_Working\mergeBathyNAVO_MATLAB_140407_1543\140407_1543\Scripps-TestResults\input_file_list_DavidTest_ncexScrippsTestFileList_ncex10x10.txt -117.2540396 32.86649436 0 -1 -msmooth 50.0 50.0 -nmsei -msri 
+
+(2)Synthetic:
+..\Output_Files\TestOutput-SyntheticTest-ncex10x10_ 10.0 10.0 hann C:\Sams_Files\FY_2012\03Mar_Elmore_MergeBathy\mergeBathy++_MATLAB_Versions\Sam_Working\mergeBathyNAVO_MATLAB_140407_1543\140407_1543\Synthetic-TestResults\input_file_list_SyntheticTest-TestFileList-list_ncex10x10.txt -92.0 32.2 0 -1 -msmooth 10.0 10.0 -nmsei -msri
+
+(3)FOUO:
+..\Output_Files\TestOutput-DavidFOUOTest-ncex500x500_ 500.0 500.0 hann ..\..\TEST_CENTER\Test_Set_03_NAVOTests_Will\Active_Testing_Site\input_file_lists\input_list_file_FOUOTest-FileList_e_ABS.txt 150.7849 -23.288 -42.69 -1 -msmooth 1500.0 1500.0 -nmsei -msri -computeOffset
+..\Output_Files\TestOutput-DavidFOUOTest-ncex500x500_ 500.0 500.0 hann C:\Sams_Files\FY_2012\03Mar_Elmore_MergeBathy\mergeBathy++_MATLAB_Versions\Sam_Working\mergeBathyNAVO_MATLAB_140407_1543\140407_1543\FOUO-Data-TestResults\input_list_file_DavidTest-TestFileList-list_FOUObathy_smaller.txt 150.7849 -23.288 -42.69 -1 -msmooth 1500.0 1500.0 -nmsei -msri -computeOffset
+-multiThread 4 -mse -1 -propUncert -1 -kalman -1 -printMatlabMatch -outputRasterFile
+NAVO Test PART II
+(4)Scripps Grid:
+..\Output_Files\TestOutPut-TestScripps-Grid-ncex50x50_ 50.0 50.0 hann C:\Sams_Files\FY_2012\03Mar_Elmore_MergeBathy\mergeBathy++_MATLAB_Versions\Sam_Working\mergeBathyNAVO_MATLAB_140515_1432\140515_1432\Scripps-Grid-TestResults\input_file_list_Test_ncexScripps-Grid-FileList_ncex10x10.txt -117.2540396 32.86649436 0 -1 -msmooth 50.0 50.0 -nmsei -msri 
+
+(5)Scripps Point with preInterpolatedPoint file:
+..\Output_Files\TestOutPut-TestScrippsPoints-ncex50x50_ 50.0 50.0 hann C:\Sams_Files\FY_2012\03Mar_Elmore_MergeBathy\mergeBathy++_MATLAB_Versions\Sam_Working\mergeBathyNAVO_MATLAB_140515_1432\140515_1432\Scripps-Points-TestResults\input_file_list_Test_ncexScripps-Points-FileList_ncex10x10.txt -117.2540396 32.86649436 0 -1 -msmooth 50.0 50.0 -preInterpolatedLocations C:\Sams_Files\FY_2012\03Mar_Elmore_MergeBathy\mergeBathy++_MATLAB_Versions\Sam_Working\mergeBathyNAVO_MATLAB_140515_1432\140515_1432\Scripps-Points-TestResults\Ncex-latlon.txt -nmsei -msri
+..\Output_Files\duckExample/DuckNC.txt 0 hann ..\..\..\mergeBathy_Pubs\2015_MergeBathy_Architecture\ToddHollands_2003\MergeBathyData\testdata\duckExample.txt 36.177602 -75.749690 18.20 -1 -nmsei -msri -noerr -multiThread 4 -nonegdepth
+     
+(6)Synthetic: 
+..\Output_Files\TestOutput-SyntheticTest-10x10_ 10.0 10.0 hann C:\Sams_Files\FY_2012\03Mar_Elmore_MergeBathy\mergeBathy++_MATLAB_Versions\Sam_Working\mergeBathyNAVO_MATLAB_140515_1432\140515_1432\Synthetic-TestResults\input_file_list_SyntheticTest-TestFileList-list10x10.txt -92.0 32.2  0 -1 -msmooth 10.0 10.0 -nmsei -msri
+==========================================================================================================================================================
+7/22/14
+NAVO Test Set
+(1)Synthetic:
+..\Output_Files\TestOutput-SyntheticTest-ncex10x10_NN 10.0 10.0 hann ..\..\TEST_CENTER\Test_Set_03_NAVOTests_Will\Active_Testing_Site\input_file_lists\Synthetic-TestResults\input_file_list_SyntheticTest-FileList_ncex10x10_ABS.txt -92.0 32.2 0 -1 -msmooth 10.0 10.0 -nmsei -msri -multiThread 4 -nnInterp -kalman -1 -propUncert -1 -mse -1 -printMatlabMatch
+
+(2)FOUO:
+..\Output_Files\TestOutput-DavidFOUOTest-ncex500x500_NN 500.0 500.0 hann ..\..\TEST_CENTER\Test_Set_03_NAVOTests_Will\Active_Testing_Site\input_file_lists\FOUO-Data-TestResults\input_list_file_FOUOTest-FileList_ABS.txt 150.7849 -23.288 -42.69 -1 -msmooth 1500.0 1500.0 -nmsei -msri -computeOffset -multiThread 1 -nnInterp -kalman -1 -propUncert -1 -mse -1 -printMatlabMatch -outputBagFile
+
+(3)Scripps Grid:
+..\Output_Files\TestOutPut-TestScripps-Grid-ncex50x50_NN 50.0 50.0 hann ..\..\TEST_CENTER\Test_Set_03_NAVOTests_Will\Active_Testing_Site\input_file_lists\Scripps-Grid-TestResults\input_file_list_Test_Scripps-Grid-FileList_ncex10x10.txt -117.2540396 32.86649436 0 -1 -msmooth 50.0 50.0 -nmsei -msri -multiThread 4 -nnInterp -kalman -1 -propUncert -1 -mse -1 -printMatlabMatch
+
+(4)Scripps Point with preInterpolatedPoint file:
+..\Output_Files\TestOutPut-TestScrippsPoints-ncex50x50_NN 50.0 50.0 hann ..\..\TEST_CENTER\Test_Set_03_NAVOTests_Will\Active_Testing_Site\input_file_lists\ncex_input_file_list_hv_ABS.txt -117.2540396 32.86649436 0 -1 -msmooth 50.0 50.0 -preInterpolatedLocations ..\..\TEST_CENTER\Test_Set_03_NAVOTests_Will\Active_Testing_Site\input_file_lists\Ncex-latlon.txt 1 -nmsei -msri -multiThread 4 -nnInterp -kalman -1 -propUncert -1 -mse -1 -printMatlabMatch
+==========================================================================================================================================================
+11/18/14
+UTM Zone Crossing Prime and Anti Meridian at Equator
+
+(1)Prime Meridian
+..\Output_Files\T04C01_CPP_TestOutPut-PORTO_primeMeridianEquator185x185m 1085 hann ..\..\TEST_CENTER\Test_Set_04_ZoneCrossing\bat_files\input_file_lists\T04C01_porto_primeMeridianEquator_input_list_CPP_ABS.txt 0 0 0 -1 -nmsei -msri -nnInterp -multiThread 8 -printMatlabMatch -mse -1
+
+(2)Anti Meridian
+..\Output_Files\T04C02_CPP_TestOutPut-PORTO_antiMeridianEquator185x185m 1085 hann ..\..\TEST_CENTER\Test_Set_04_ZoneCrossing\bat_files\input_file_lists\T04C02_porto_antiMeridianEquator_input_list_CPP_ABS.txt -180 0 0 -1 -nmsei -msri -nnInterp -multiThread 8 -printMatlabMatch -mse -1
+
+(3)Anti Meridian Quads
+..\Output_Files\T04C03_CPP_TestOutPut-PORTO_antiMeridianEquator_Quads1185x185m 1085 hann ..\..\TEST_CENTER\Test_Set_04_ZoneCrossing\bat_files\input_file_lists\T04C03_porto_antiMeridianEquator_Quads1_input_list_CPP_ABS.txt -180 0 0 -1 -nmsei -msri -nnInterp -multiThread 8 -printMatlabMatch -mse -1
+
+(4)Anti Meridian with Pre-Interpolated Locations
+..\Output_Files\T04C04_CPP_TestOutPut-PORTO_antiMeridianEquator185x185m_interpLocs 1085 hann ..\..\TEST_CENTER\Test_Set_04_ZoneCrossing\input_file_lists\T04C02_porto_antiMeridianEquator_input_list_CPP_ABS.txt -180 0 0 -1 -preInterpolatedLocations ..\..\TEST_CENTER\Test_Set_04_ZoneCrossing\input_file_lists\p0_antiMeridianEquator-latlon.txt -nmsei -msri -nnInterp -multiThread 8 -printMatlabMatch -mse -1
+
+(5)Anti Meridian with a Rotation Angle and Reference Longitude
+..\Output_Files\T04C05_CPP_TestOutPut-PORTO_antiMeridianEquator185x185mwRotAngle 1085 hann ..\..\TEST_CENTER\Test_Set_04_ZoneCrossing\bat_files\input_file_lists\T04C02_porto_antiMeridianEquator_input_list_CPP_ABS.txt -180 0 -45 -1 -nmsei -msri -nnInterp -multiThread 8 -printMatlabMatch -mse -1
+
+(6)Prime Meridian Quads 4 Datasets in 4 UTM zones (1 per Zone)
+..\Output_Files\T04C06_CPP_TestOutPut-PORTO_primeMeridianEquator_Quads1185x185m 1085 hann ..\..\TEST_CENTER\Test_Set_04_ZoneCrossing\bat_files\input_file_lists\T04C06_porto_primeMeridianEquator_Quads1_input_list_CPP_ABS.txt 0 0 0 -1 -nmsei -msri -nnInterp -multiThread 8 -printMatlabMatch -mse -1
+
+(7)Prime Meridian Quads Multiple Datasets in UTM Zones with Pre-Interpolated Locations
+..\Output_Files\T04C07_CPP_TestOutPut-PORTO_primeMeridianEquator_Quads2185x185m 1085 hann ..\..\TEST_CENTER\Test_Set_04_ZoneCrossing\bat_files\input_file_lists\T04C07_porto_primeMeridianEquator_Quads2_input_list_CPP_ABS.txt 0 0 0 -1 -nmsei -msri -nnInterp -multiThread 8 -printMatlabMatch -mse -1
+
+(8)Prime Meridian Quads Multiple Datasets in UTM Zones with Rotation Angle
+..\Output_Files\T04C08_CPP_TestOutPut-PORTO_primeMeridianEquator_Quads2185x185mwRotAngle 1085 hann ..\..\TEST_CENTER\Test_Set_04_ZoneCrossing\bat_files\input_file_lists\T04C07_porto_primeMeridianEquator_Quads2_input_list_CPP_ABS.txt 0 0 45 -1 -nmsei -msri -nnInterp -multiThread 8 -printMatlabMatch -mse -1
+
+(9)Prime Meridian Quads Multiple Datasets in UTM Zones with Pre-Interpolated Locations
+..\Output_Files\T04C09_CPP_TestOutPut-PORTO_primeMeridianEquator_Quads2_interpLocs185x185m 1085 hann ..\..\TEST_CENTER\Test_Set_04_ZoneCrossing\bat_files\input_file_lists\T04C07_porto_primeMeridianEquator_Quads2_input_list_CPP_ABS.txt 0 0 0 -1 -preInterpolatedLocations ..\..\TEST_CENTER\Test_Set_04_ZoneCrossing\../../DATA_CENTER\Porto_data\p0_primeMeridianEquator-latlon.txt -nmsei -msri -nnInterp -multiThread 8 -printMatlabMatch -mse -1
+
+==========================================================================================================================================================
+1/19/16
+Todd Holland's MergeBathyUser.doc Examples (from make_figures.m)
+fig2b:
+..\Output_Files\duckExample\DuckNC 10 hann C:\Sams_Files\FY_2012\mergeBathy_Pubs\2015_MergeBathy_Architecture\ToddHollands_2003\MergeBathyData\testdata\duckExample\duckOverlapABS.txt -75.749690 36.177602 18.20 -1 -msmooth 50 50 -nmsei -msri -noerr -multiThread 4 -computeOffset -modelflag
+
+fig3b:
+..\Output_Files\duckExample\DuckNC 10 hann C:\Sams_Files\FY_2012\mergeBathy_Pubs\2015_MergeBathy_Architecture\ToddHollands_2003\MergeBathyData\testdata\duckExample\duckMatchABS.txt -75.749690 36.177602 18.20 -1 -msmooth 50 50 -nmsei -msri -noerr -multiThread 4 -computeOffset -modelflag
+
+fig4b:
+..\Output_Files\duckExample\DuckNC 10 hann C:\Sams_Files\FY_2012\mergeBathy_Pubs\2015_MergeBathy_Architecture\ToddHollands_2003\MergeBathyData\testdata\duckExample\duckGapABS.txt -75.749690 36.177602 18.20 -1 -msmooth 50 50 -nmsei -msri -noerr -multiThread 4 -computeOffset -modelflag
+
+fig5a:
+..\Output_Files\duckExample\DuckNC 50 hann C:\Sams_Files\FY_2012\mergeBathy_Pubs\2015_MergeBathy_Architecture\ToddHollands_2003\MergeBathyData\testdata\duckExample\duckExampleABS.txt -75.749690 36.177602 18.20 -1 -nmsei -msri -noerr -multiThread 4 -nonegdepth -modelflag -msmooth 50 50
+
+fig5b:
+..\Output_Files\duckExample\DuckNC 10 hann C:\Sams_Files\FY_2012\mergeBathy_Pubs\2015_MergeBathy_Architecture\ToddHollands_2003\MergeBathyData\testdata\duckExample\duckExampleABS.txt -75.749690 36.177602 18.20 -1 -nmsei -msri -noerr -multiThread 4 -nonegdepth -modelflag -msmooth 10 10
+
+fig6a:
+..\Output_Files\duckExample\DuckNC 10 hann C:\Sams_Files\FY_2012\mergeBathy_Pubs\2015_MergeBathy_Architecture\ToddHollands_2003\MergeBathyData\testdata\duckExample\duckExampleABS.txt -75.749690 36.177602 18.20 -1 -nmsei -msri -multiThread 4 -nonegdepth -modelflag -msmooth 20 20 -printMatlabMatch
+
+fig6b:
+..\Output_Files\duckExample\DuckNC 10 hann C:\Sams_Files\FY_2012\mergeBathy_Pubs\2015_MergeBathy_Architecture\ToddHollands_2003\MergeBathyData\testdata\duckExample\duckExampleABS.txt -75.749690 36.177602 18.20 -1 -nmsei -msri -noerr -multiThread 4 -nonegdepth -modelflag -msmooth 20 100
+
+fig9a:
+..\Output_Files\duckExample\NCEX 50 hann C:\Sams_Files\FY_2012\mergeBathy_Pubs\2015_MergeBathy_Architecture\ToddHollands_2003\MergeBathyData\testdata\duckExample\ncexExample/list_ncex_basicABS.txt -117.2540396 32.86649436 109.0 -1 -nmsei -msri -noerr -multiThread 4 -nonegdepth -modelflag -msmooth 200 200
+
+fig9b:
+..\Output_Files\duckExample\NCEX 50 hann C:\Sams_Files\FY_2012\mergeBathy_Pubs\2015_MergeBathy_Architecture\ToddHollands_2003\MergeBathyData\testdata\duckExample\ncexExample/list_ncex_basicABS.txt 0 0 0 -1 -nmsei -msri -noerr -multiThread 4 -nonegdepth -modelflag -msmooth 200 200
+
+fig12a,b & 14a,b:
+..\Output_Files\T01C04_CPP_DBDBV_0.5_NoOverlap 926 hann ..\..\TEST_CENTER\Test_Set_01_runValidationData_Kevins\Active_Testing_Site\input_file_lists\DBDBV_test_input_file_list_NoOverlap_e_ABS.txt -129 49.5 0 -1 -nmsei -msri -multiThread 8 -mse 1 -modelflag -nonegdepth -msmooth 926 926
+
+fig12c,d & 13a,b:
+..\Output_Files\T01C04_CPP_DBDBV_0.5_NoOverlapMBZ 926 hann ..\..\TEST_CENTER\Test_Set_01_runValidationData_Kevins\Active_Testing_Site\input_file_lists\DBDBV_test_input_file_list_NoOverlap_e_ABS.txt -129 49.5 0 -1 -nmsei -msri -multiThread 8 -mse 1 -modelflag -nonegdepth -msmooth 926 926 -ZGrid 926 926 ..\Output_Files\T01C04_CPP_DBDBV_0.5_NoOverlap_MBZ_xyde 0.1 -2
+
+fig13c,d:
+..\Output_Files\T01C04_CPP_DBDBV_0.5_NoOverlapMBZK 926 hann ..\..\TEST_CENTER\Test_Set_01_runValidationData_Kevins\Active_Testing_Site\input_file_lists\DBDBV_test_input_file_list_NoOverlap_e_ABS.txt -129 49.5 0 -1 -nmsei -msri -multiThread 8 -mse 1 -modelflag -nonegdepth -msmooth 926 926 -ZGrid 926 926 ..\Output_Files\T01C04_CPP_DBDBV_0.5_NoOverlap_MBZ_xyde 0.1 -2 -kriging
+
+fig13c,d:
+..\Output_Files\T01C04_CPP_DBDBV_0.5_NoOverlapK 926 hann ..\..\TEST_CENTER\Test_Set_01_runValidationData_Kevins\Active_Testing_Site\input_file_lists\DBDBV_test_input_file_list_NoOverlap_e_ABS.txt -129 49.5 0 -1 -nmsei -msri -multiThread 8 -mse 1 -modelflag -nonegdepth -msmooth 926 926 -kriging
+
+=================================================================================================================================================================
+9/7/16
+Preliminary Experiments for Dissertation
+..\output_files\T01C01_CPP_Seamount_0.04x0.04m 0.04 hann ..\..\TEST_CENTER\Test_Set_08_Ensembles\input_file_lists\Seamount_input_file_list.txt 0 0 0 -1 -nmsei -msri -multiThread 8 -mse 1 -inputInMeters
+..\output_files\T09C02_CPP_NCEX_100x100m_hv 100 hann ..\..\TEST_CENTER\Test_Set_09_CURVE_Paper\Active_Testing_Site\input_file_lists\input_file_list_NCEX_TestSets_meters.txt -117.2540396 32.86649436 0 -1 -nmsei -msri -multiThread 8 -mse 1 -propUncert 1 -inputInMeters -preInterpolatedLocations ..\..\TEST_CENTER\Test_Set_09_CURVE_Paper\input_file_lists/Scripps_NCEX_TestSet_outGrid_meters.txt -1 > ..\command_line_execution\T01C02_NCEX_100x100m_hv_output.txt
+ ..\output_files\NEPR_sampled_GMT_300x300hann 300 hann ..\..\TEST_CENTER\Test_Set_09_CURVE_Paper\Active_Testing_Site\input_file_lists\input_file_list_NEPR_masked_sampled.txt 8.50268877 -105.87796932 0 -1 -GMTSurface 300 300 ..\Output_Files\NEPR_sampled_GMT_300x300_xyz 0.1 1.96 2 -2 -nmsei -msri -multiThread 8 -mse 1 -propUncert 1
+..\output_files\NEPR_sampled_GMT_300x30 300 hann ..\..\TEST_CENTER\Test_Set_09_CURVE_Paper\Active_Testing_Site\input_file_lists\input_file_list_NEPR_masked_sampled_ABS.txt -104 10 0 -1 -GMTSurface 300 300 ..\Output_Files\NEPR_sampled_GMT_300x300_xyz 0.1 1.96 2 -2 -nmsei -msri -multiThread 8 -mse 1 -propUncert 1
+..\output_files\NEPR_sampled_GMT_300x30 300 hann ..\..\TEST_CENTER\Test_Set_09_CURVE_Paper\Active_Testing_Site\input_file_lists\input_file_list_NEPR_masked_sampled_ABS.txt -104 10 0 -1 -GMTSurface 300 300 ..\Output_Files\NEPR_sampled_GMT_300x300_xyz 0.1 1.96 2 -2 -nmsei -msri -multiThread 8 -mse 1 -propUncert 1 -preInterpolatedLocations ..\..\TEST_CENTER\Test_Set_09_CURVE_Paper\Active_Testing_Site\input_file_lists\Scripps_NCEX_TestSet100x100_outGrid_meters.txt 2
+
+..\output_files\T01C01_CPP_Seamount_4x4m 4 hann ..\..\TEST_CENTER\Test_Set_08_Ensembles\input_file_lists\Seamount_input_file_list_ABS.txt 16000 16000 0 -1 -nmsei -msri -multiThread 8 -mse 1 -inputInMeters -appendFilename -GMTSurface 4 4 ..\output_files\T01C01_CPP_Seamount_4x4m_GMT_xyde 0.1 1 2 -2 -preInterpolatedLocations ..\..\..\DISSERTATION\Scripts\Matlab_Scripts\synthetic_data\locs-latlon.txt 2
