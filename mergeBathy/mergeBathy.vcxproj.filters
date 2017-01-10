@@ -1,0 +1,494 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\GSF">
+      <UniqueIdentifier>{ff5abd27-7947-4c3c-b22c-22e08de90486}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GSF">
+      <UniqueIdentifier>{daa3f8fe-6b96-4025-8666-b6a55d52e307}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\MB_ZGrid">
+      <UniqueIdentifier>{3639e749-860c-4031-bf69-4a1faa2a0bb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MB_ZGrid">
+      <UniqueIdentifier>{2a1a257d-2b52-4cd3-9c7c-7e2f28fd675b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GMT_Surface">
+      <UniqueIdentifier>{58eb6ed4-a73c-4587-b359-966cf70073f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Error_Estimator">
+      <UniqueIdentifier>{cbed431a-2f46-495c-8f27-114a2075dbf2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Error_Estimator">
+      <UniqueIdentifier>{47bfa4a7-1038-417e-820c-644f694950cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ALG">
+      <UniqueIdentifier>{5285f030-f680-4ec5-bb60-64acd6fc9783}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ALG">
+      <UniqueIdentifier>{749939d1-5b36-4080-8a55-648be821944f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\NR">
+      <UniqueIdentifier>{2424f84e-8e2c-441f-98c3-9f189708d69c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\NR">
+      <UniqueIdentifier>{4007b6da-6d56-4711-a16a-3d646a05e9df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GMT_Surface">
+      <UniqueIdentifier>{2fbebede-d445-4f26-8fe2-39ed5972d318}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GSF\geod.c">
+      <Filter>Source Files\GSF</Filter>
+    </ClCompile>
+    <ClCompile Include="GSF\geodesic.c">
+      <Filter>Source Files\GSF</Filter>
+    </ClCompile>
+    <ClCompile Include="GSF\gsf.c">
+      <Filter>Source Files\GSF</Filter>
+    </ClCompile>
+    <ClCompile Include="GSF\gsf_dec.c">
+      <Filter>Source Files\GSF</Filter>
+    </ClCompile>
+    <ClCompile Include="GSF\gsf_enc.c">
+      <Filter>Source Files\GSF</Filter>
+    </ClCompile>
+    <ClCompile Include="GSF\gsf_indx.c">
+      <Filter>Source Files\GSF</Filter>
+    </ClCompile>
+    <ClCompile Include="GSF\gsfReader.c">
+      <Filter>Source Files\GSF</Filter>
+    </ClCompile>
+    <ClCompile Include="GSF\gsfSensorName.c">
+      <Filter>Source Files\GSF</Filter>
+    </ClCompile>
+    <ClCompile Include="MB_ZGrid\mb_zgrid.c">
+      <Filter>Source Files\MB_ZGrid</Filter>
+    </ClCompile>
+    <ClCompile Include="GMT_Surface\gmt_bcr.c">
+      <Filter>Source Files\GMT_Surface</Filter>
+    </ClCompile>
+    <ClCompile Include="GMT_Surface\gmt_calclock.c">
+      <Filter>Source Files\GMT_Surface</Filter>
+    </ClCompile>
+    <ClCompile Include="GMT_Surface\gmt_cdf.c">
+      <Filter>Source Files\GMT_Surface</Filter>
+    </ClCompile>
+    <ClCompile Include="GMT_Surface\gmt_customio.c">
+      <Filter>Source Files\GMT_Surface</Filter>
+    </ClCompile>
+    <ClCompile Include="GMT_Surface\gmt_grdio.c">
+      <Filter>Source Files\GMT_Surface</Filter>
+    </ClCompile>
+    <ClCompile Include="GMT_Surface\gmt_init.c">
+      <Filter>Source Files\GMT_Surface</Filter>
+    </ClCompile>
+    <ClCompile Include="GMT_Surface\gmt_io.c">
+      <Filter>Source Files\GMT_Surface</Filter>
+    </ClCompile>
+    <ClCompile Include="GMT_Surface\gmt_map.c">
+      <Filter>Source Files\GMT_Surface</Filter>
+    </ClCompile>
+    <ClCompile Include="GMT_Surface\gmt_nc.c">
+      <Filter>Source Files\GMT_Surface</Filter>
+    </ClCompile>
+    <ClCompile Include="GMT_Surface\gmt_proj.c">
+      <Filter>Source Files\GMT_Surface</Filter>
+    </ClCompile>
+    <ClCompile Include="GMT_Surface\gmt_stat.c">
+      <Filter>Source Files\GMT_Surface</Filter>
+    </ClCompile>
+    <ClCompile Include="GMT_Surface\gmt_support.c">
+      <Filter>Source Files\GMT_Surface</Filter>
+    </ClCompile>
+    <ClCompile Include="GMT_Surface\gmt_vector.c">
+      <Filter>Source Files\GMT_Surface</Filter>
+    </ClCompile>
+    <ClCompile Include="GMT_Surface\surf.c">
+      <Filter>Source Files\GMT_Surface</Filter>
+    </ClCompile>
+    <ClCompile Include="GMT_Surface\surface.c">
+      <Filter>Source Files\GMT_Surface</Filter>
+    </ClCompile>
+    <ClCompile Include="GMT_Surface\processSurface.c">
+      <Filter>Source Files\GMT_Surface</Filter>
+    </ClCompile>
+    <ClCompile Include="Error_Estimator\geom.cpp">
+      <Filter>Source Files\Error_Estimator</Filter>
+    </ClCompile>
+    <ClCompile Include="Error_Estimator\mesh.cpp">
+      <Filter>Source Files\Error_Estimator</Filter>
+    </ClCompile>
+    <ClCompile Include="Error_Estimator\pingList.cpp">
+      <Filter>Source Files\Error_Estimator</Filter>
+    </ClCompile>
+    <ClCompile Include="Error_Estimator\pointList.cpp">
+      <Filter>Source Files\Error_Estimator</Filter>
+    </ClCompile>
+    <ClCompile Include="Error_Estimator\sHullDelaunay.cpp">
+      <Filter>Source Files\Error_Estimator</Filter>
+    </ClCompile>
+    <ClCompile Include="Error_Estimator\vincenty.cpp">
+      <Filter>Source Files\Error_Estimator</Filter>
+    </ClCompile>
+    <ClCompile Include="bathyTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="consistentWeights.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="externalInterpolators.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="fileReader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="grid.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kriging.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LatLong-UTMconversion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mergeBathy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mergeBathyOld.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="regr_xzw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rng.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scalecInterp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scalecInterpPerturbations.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scalecInterpTile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="subSampleData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="computeOffset.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="standardOperations.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MB_Threads.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="fileWriter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ALG\alglibinternal.cpp">
+      <Filter>Source Files\ALG</Filter>
+    </ClCompile>
+    <ClCompile Include="ALG\alglibmisc.cpp">
+      <Filter>Source Files\ALG</Filter>
+    </ClCompile>
+    <ClCompile Include="ALG\ap.cpp">
+      <Filter>Source Files\ALG</Filter>
+    </ClCompile>
+    <ClCompile Include="ALG\dataanalysis.cpp">
+      <Filter>Source Files\ALG</Filter>
+    </ClCompile>
+    <ClCompile Include="ALG\diffequations.cpp">
+      <Filter>Source Files\ALG</Filter>
+    </ClCompile>
+    <ClCompile Include="ALG\fasttransforms.cpp">
+      <Filter>Source Files\ALG</Filter>
+    </ClCompile>
+    <ClCompile Include="ALG\integration.cpp">
+      <Filter>Source Files\ALG</Filter>
+    </ClCompile>
+    <ClCompile Include="ALG\interpolation.cpp">
+      <Filter>Source Files\ALG</Filter>
+    </ClCompile>
+    <ClCompile Include="ALG\linalg.cpp">
+      <Filter>Source Files\ALG</Filter>
+    </ClCompile>
+    <ClCompile Include="ALG\optimization.cpp">
+      <Filter>Source Files\ALG</Filter>
+    </ClCompile>
+    <ClCompile Include="ALG\solvers.cpp">
+      <Filter>Source Files\ALG</Filter>
+    </ClCompile>
+    <ClCompile Include="ALG\specialfunctions.cpp">
+      <Filter>Source Files\ALG</Filter>
+    </ClCompile>
+    <ClCompile Include="ALG\statistics.cpp">
+      <Filter>Source Files\ALG</Filter>
+    </ClCompile>
+    <ClCompile Include="Error_Estimator\Bathy_Grid.cpp">
+      <Filter>Source Files\Error_Estimator</Filter>
+    </ClCompile>
+    <ClCompile Include="NR\computational_geometry_algo_interp.cpp">
+      <Filter>Source Files\NR</Filter>
+    </ClCompile>
+    <ClCompile Include="Error_Estimator\GradientGrid.cpp">
+      <Filter>Source Files\Error_Estimator</Filter>
+    </ClCompile>
+    <ClCompile Include="xmlWriter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="fileBagWriter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GSF\ellipsoid.h">
+      <Filter>Header Files\GSF</Filter>
+    </ClInclude>
+    <ClInclude Include="GSF\geod.h">
+      <Filter>Header Files\GSF</Filter>
+    </ClInclude>
+    <ClInclude Include="GSF\geodesic.h">
+      <Filter>Header Files\GSF</Filter>
+    </ClInclude>
+    <ClInclude Include="GSF\gsf.h">
+      <Filter>Header Files\GSF</Filter>
+    </ClInclude>
+    <ClInclude Include="GSF\gsf_dec.h">
+      <Filter>Header Files\GSF</Filter>
+    </ClInclude>
+    <ClInclude Include="GSF\gsf_enc.h">
+      <Filter>Header Files\GSF</Filter>
+    </ClInclude>
+    <ClInclude Include="GSF\gsf_ft.h">
+      <Filter>Header Files\GSF</Filter>
+    </ClInclude>
+    <ClInclude Include="GSF\gsf_indx.h">
+      <Filter>Header Files\GSF</Filter>
+    </ClInclude>
+    <ClInclude Include="GSF\gsfReader.h">
+      <Filter>Header Files\GSF</Filter>
+    </ClInclude>
+    <ClInclude Include="GSF\gsfSensorName.h">
+      <Filter>Header Files\GSF</Filter>
+    </ClInclude>
+    <ClInclude Include="MB_ZGrid\mb_define.h">
+      <Filter>Header Files\MB_ZGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="MB_ZGrid\mb_zgrid.h">
+      <Filter>Header Files\MB_ZGrid</Filter>
+    </ClInclude>
+    <ClInclude Include="GMT_Surface\surf.h">
+      <Filter>Header Files\GMT_Surface</Filter>
+    </ClInclude>
+    <ClInclude Include="GMT_Surface\version.h">
+      <Filter>Header Files\GMT_Surface</Filter>
+    </ClInclude>
+    <ClInclude Include="GMT_Surface\processSurface.h">
+      <Filter>Header Files\GMT_Surface</Filter>
+    </ClInclude>
+    <ClInclude Include="Error_Estimator\geom.h">
+      <Filter>Header Files\Error_Estimator</Filter>
+    </ClInclude>
+    <ClInclude Include="Error_Estimator\mesh.h">
+      <Filter>Header Files\Error_Estimator</Filter>
+    </ClInclude>
+    <ClInclude Include="Error_Estimator\pingList.h">
+      <Filter>Header Files\Error_Estimator</Filter>
+    </ClInclude>
+    <ClInclude Include="Error_Estimator\pointList.h">
+      <Filter>Header Files\Error_Estimator</Filter>
+    </ClInclude>
+    <ClInclude Include="Error_Estimator\vincenty.h">
+      <Filter>Header Files\Error_Estimator</Filter>
+    </ClInclude>
+    <ClInclude Include="bathyTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="consistentWeights.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="constants.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="externalInterpolators.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fileReader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="grid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inFileStructs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="kriging.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LatLong-UTMconversion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mergeBathyOld.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="outFileStructs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="regr_xzw.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rng.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scalecInterp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scalecInterpPerturbations.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="subSampleData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="supportedFileTypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="computeOffset.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="standardOperations.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MB_Threads.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fileWriter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mergeBathy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ALG\alglibinternal.h">
+      <Filter>Header Files\ALG</Filter>
+    </ClInclude>
+    <ClInclude Include="ALG\alglibmisc.h">
+      <Filter>Header Files\ALG</Filter>
+    </ClInclude>
+    <ClInclude Include="ALG\ap.h">
+      <Filter>Header Files\ALG</Filter>
+    </ClInclude>
+    <ClInclude Include="ALG\dataanalysis.h">
+      <Filter>Header Files\ALG</Filter>
+    </ClInclude>
+    <ClInclude Include="ALG\diffequations.h">
+      <Filter>Header Files\ALG</Filter>
+    </ClInclude>
+    <ClInclude Include="ALG\fasttransforms.h">
+      <Filter>Header Files\ALG</Filter>
+    </ClInclude>
+    <ClInclude Include="ALG\integration.h">
+      <Filter>Header Files\ALG</Filter>
+    </ClInclude>
+    <ClInclude Include="ALG\interpolation.h">
+      <Filter>Header Files\ALG</Filter>
+    </ClInclude>
+    <ClInclude Include="ALG\linalg.h">
+      <Filter>Header Files\ALG</Filter>
+    </ClInclude>
+    <ClInclude Include="ALG\optimization.h">
+      <Filter>Header Files\ALG</Filter>
+    </ClInclude>
+    <ClInclude Include="ALG\solvers.h">
+      <Filter>Header Files\ALG</Filter>
+    </ClInclude>
+    <ClInclude Include="ALG\specialfunctions.h">
+      <Filter>Header Files\ALG</Filter>
+    </ClInclude>
+    <ClInclude Include="ALG\statistics.h">
+      <Filter>Header Files\ALG</Filter>
+    </ClInclude>
+    <ClInclude Include="ALG\stdafx.h">
+      <Filter>Header Files\ALG</Filter>
+    </ClInclude>
+    <ClInclude Include="Error_Estimator\Bathy_Grid.h">
+      <Filter>Header Files\Error_Estimator</Filter>
+    </ClInclude>
+    <ClInclude Include="Error_Estimator\sHullDelaunay.h">
+      <Filter>Header Files\Error_Estimator</Filter>
+    </ClInclude>
+    <ClInclude Include="NR\computational_geometry_algo_interp.h">
+      <Filter>Header Files\NR</Filter>
+    </ClInclude>
+    <ClInclude Include="NR\interp_1d.h">
+      <Filter>Header Files\NR</Filter>
+    </ClInclude>
+    <ClInclude Include="NR\interp_2d.h">
+      <Filter>Header Files\NR</Filter>
+    </ClInclude>
+    <ClInclude Include="NR\interp_curve.h">
+      <Filter>Header Files\NR</Filter>
+    </ClInclude>
+    <ClInclude Include="NR\interp_laplace.h">
+      <Filter>Header Files\NR</Filter>
+    </ClInclude>
+    <ClInclude Include="NR\interp_linear.h">
+      <Filter>Header Files\NR</Filter>
+    </ClInclude>
+    <ClInclude Include="NR\interp_rbf.h">
+      <Filter>Header Files\NR</Filter>
+    </ClInclude>
+    <ClInclude Include="NR\krig.h">
+      <Filter>Header Files\NR</Filter>
+    </ClInclude>
+    <ClInclude Include="NR\linbcg.h">
+      <Filter>Header Files\NR</Filter>
+    </ClInclude>
+    <ClInclude Include="NR\ludcmp.h">
+      <Filter>Header Files\NR</Filter>
+    </ClInclude>
+    <ClInclude Include="NR\nr3.h">
+      <Filter>Header Files\NR</Filter>
+    </ClInclude>
+    <ClInclude Include="NR\polcoef.h">
+      <Filter>Header Files\NR</Filter>
+    </ClInclude>
+    <ClInclude Include="NR\targetver.h">
+      <Filter>Header Files\NR</Filter>
+    </ClInclude>
+    <ClInclude Include="Error_Estimator\GradientGrid.h">
+      <Filter>Header Files\Error_Estimator</Filter>
+    </ClInclude>
+    <ClInclude Include="WarningStates.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fileBagWriter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="xmlWriter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="mergeBathy.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

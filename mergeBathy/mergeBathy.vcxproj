@@ -1,0 +1,418 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{DE7F8A54-6A45-4151-B894-B5D3A16C7B2B}</ProjectGuid>
+    <RootNamespace>mergeBathy</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)x86\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IntDir>x86\$(Configuration)\</IntDir>
+    <LinkIncremental>
+    </LinkIncremental>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+    <SourcePath>$(SourcePath)</SourcePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+    <LinkIncremental>false</LinkIncremental>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <OutDir>$(SolutionDir)x86\$(Configuration)\</OutDir>
+    <IntDir>x86\$(Configuration)\</IntDir>
+    <TargetExt>.exe</TargetExt>
+    <IgnoreImportLibrary>false</IgnoreImportLibrary>
+    <SourcePath>$(SourcePath)</SourcePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WIN32;GMT_SHARE_PATH=".";NVWIN3X;NDEBUG;_CONSOLE;_DISABLE_3RDPARTY_WARNINGS=1;BOOST_ALL_NO_LIB</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\.\extlibs\libs_win\includes;..\.\extlibs\libs_win\includes\hdf5;..\.\extlibs\libs_win\includes\beecrypt;..\.\api;.\includes;.\libs;.\includes\auxiliary\gmp\include;.\includes\boost;.\GMT_Surface\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <MinimalRebuild>true</MinimalRebuild>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <DisableLanguageExtensions>false</DisableLanguageExtensions>
+      <CompileAs>Default</CompileAs>
+      <CallingConvention>Cdecl</CallingConvention>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeTypeInfo>
+      </RuntimeTypeInfo>
+      <FloatingPointModel>Precise</FloatingPointModel>
+      <FloatingPointExceptions>true</FloatingPointExceptions>
+      <EnablePREfast>false</EnablePREfast>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <CompileAsManaged>
+      </CompileAsManaged>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <UseUnicodeForAssemblerListing>
+      </UseUnicodeForAssemblerListing>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>bagd.lib;hdf5ddll.lib;beecryptd.lib;libxml2.lib;ws2_32.lib;opengl32.lib</AdditionalDependencies>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <AdditionalLibraryDirectories>..\.\extlibs\libs_win\x86\$(Configuration);.\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <HeapCommitSize>
+      </HeapCommitSize>
+      <StackCommitSize>
+      </StackCommitSize>
+      <HeapReserveSize>
+      </HeapReserveSize>
+      <StackReserveSize>
+      </StackReserveSize>
+      <ShowProgress>NotSet</ShowProgress>
+      <LinkStatus>
+      </LinkStatus>
+      <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <Version>5.0.2</Version>
+      <LargeAddressAware>
+      </LargeAddressAware>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WIN32;GMT_SHARE_PATH=".";NVWIN3X;NDEBUG;_CONSOLE;_DISABLE_3RDPARTY_WARNINGS=1;BOOST_ALL_NO_LIB</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\.\extlibs\libs_win\includes;..\.\extlibs\libs_win\includes\hdf5;..\.\extlibs\libs_win\includes\beecrypt;..\.\api;.\includes;.\libs;.\includes\boost;.\GMT_Surface\include;.\includes\auxiliary\gmp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <OmitFramePointers>false</OmitFramePointers>
+      <MinimalRebuild>true</MinimalRebuild>
+      <DisableLanguageExtensions>false</DisableLanguageExtensions>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <FloatingPointExceptions>true</FloatingPointExceptions>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>bagd.lib;hdf5ddll.lib;beecryptd.lib;libxml2.lib;ws2_32.lib;opengl32.lib</AdditionalDependencies>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <SubSystem>
+      </SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <AdditionalLibraryDirectories>..\.\extlibs\libs_win\$(Platform)\$(Configuration);.\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ShowProgress>NotSet</ShowProgress>
+      <LinkStatus>
+      </LinkStatus>
+      <TreatLinkerWarningAsErrors>true</TreatLinkerWarningAsErrors>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <Version>5.0.2</Version>
+    </Link>
+    <Xdcmake>
+      <AdditionalOptions>/log %(AdditionalOptions)</AdditionalOptions>
+    </Xdcmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level1</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <PreprocessorDefinitions>WIN32;_WIN32;GMT_SHARE_PATH=".";NVWIN3X;NDEBUG;_CONSOLE;_DISABLE_3RDPARTY_WARNINGS=1;BOOST_ALL_NO_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <AdditionalIncludeDirectories>..\.\extlibs\libs_win\includes;..\.\extlibs\libs_win\includes\hdf5;..\.\extlibs\libs_win\includes\beecrypt;..\.\api;.\includes;.\libs;.\includes\auxiliary\gmp\include;.\includes\boost;.\GMT_Surface\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>bag.lib;hdf5dll.lib;beecrypt.lib;libxml2.lib;ws2_32.lib;opengl32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\.\extlibs\libs_win\x86\$(Configuration);.\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+      <Version>5.0.2</Version>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level1</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <PreprocessorDefinitions>WIN32;_WIN32;GMT_SHARE_PATH=".";NVWIN3X;NDEBUG;_CONSOLE;_DISABLE_3RDPARTY_WARNINGS=1;BOOST_ALL_NO_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <CompileAs>Default</CompileAs>
+      <FloatingPointModel>Precise</FloatingPointModel>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <AdditionalIncludeDirectories>..\.\extlibs\libs_win\includes;..\.\extlibs\libs_win\includes\hdf5;..\.\extlibs\libs_win\includes\beecrypt;..\.\api;.\includes;.\libs;.\includes\auxiliary\gmp\include;.\includes\boost;.\GMT_Surface\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <OmitFramePointers>false</OmitFramePointers>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>bag.lib;hdf5dll.lib;beecrypt.lib;libxml2.lib;ws2_32.lib;opengl32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\.\extlibs\libs_win\$(Platform)\$(Configuration);.\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <Version>5.0.2</Version>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="ALG\alglibinternal.cpp" />
+    <ClCompile Include="ALG\alglibmisc.cpp" />
+    <ClCompile Include="ALG\ap.cpp" />
+    <ClCompile Include="ALG\dataanalysis.cpp" />
+    <ClCompile Include="ALG\diffequations.cpp" />
+    <ClCompile Include="ALG\fasttransforms.cpp" />
+    <ClCompile Include="ALG\integration.cpp" />
+    <ClCompile Include="ALG\interpolation.cpp" />
+    <ClCompile Include="ALG\linalg.cpp" />
+    <ClCompile Include="ALG\optimization.cpp" />
+    <ClCompile Include="ALG\solvers.cpp" />
+    <ClCompile Include="ALG\specialfunctions.cpp" />
+    <ClCompile Include="ALG\statistics.cpp" />
+    <ClCompile Include="bathyTool.cpp" />
+    <ClCompile Include="computeOffset.cpp" />
+    <ClCompile Include="consistentWeights.cpp" />
+    <ClCompile Include="Error_Estimator\geom.cpp" />
+    <ClCompile Include="Error_Estimator\GradientGrid.cpp" />
+    <ClCompile Include="Error_Estimator\mesh.cpp" />
+    <ClCompile Include="Error_Estimator\pingList.cpp" />
+    <ClCompile Include="Error_Estimator\pointList.cpp" />
+    <ClCompile Include="Error_Estimator\sHullDelaunay.cpp" />
+    <ClCompile Include="Error_Estimator\Bathy_Grid.cpp" />
+    <ClCompile Include="Error_Estimator\vincenty.cpp" />
+    <ClCompile Include="externalInterpolators.cpp" />
+    <ClCompile Include="fileBagWriter.cpp" />
+    <ClCompile Include="fileReader.cpp" />
+    <ClCompile Include="fileWriter.cpp" />
+    <ClCompile Include="GMT_Surface\gmt_bcr.c" />
+    <ClCompile Include="GMT_Surface\gmt_calclock.c" />
+    <ClCompile Include="GMT_Surface\gmt_cdf.c" />
+    <ClCompile Include="GMT_Surface\gmt_customio.c" />
+    <ClCompile Include="GMT_Surface\gmt_grdio.c" />
+    <ClCompile Include="GMT_Surface\gmt_init.c" />
+    <ClCompile Include="GMT_Surface\gmt_io.c" />
+    <ClCompile Include="GMT_Surface\gmt_map.c" />
+    <ClCompile Include="GMT_Surface\gmt_nc.c" />
+    <ClCompile Include="GMT_Surface\gmt_proj.c" />
+    <ClCompile Include="GMT_Surface\gmt_stat.c" />
+    <ClCompile Include="GMT_Surface\gmt_support.c" />
+    <ClCompile Include="GMT_Surface\gmt_vector.c" />
+    <ClCompile Include="GMT_Surface\processSurface.c" />
+    <ClCompile Include="GMT_Surface\surf.c" />
+    <ClCompile Include="GMT_Surface\surface.c" />
+    <ClCompile Include="grid.cpp" />
+    <ClCompile Include="GSF\geod.c" />
+    <ClCompile Include="GSF\geodesic.c" />
+    <ClCompile Include="GSF\gsf.c" />
+    <ClCompile Include="GSF\gsfReader.c" />
+    <ClCompile Include="GSF\gsfSensorName.c" />
+    <ClCompile Include="GSF\gsf_dec.c" />
+    <ClCompile Include="GSF\gsf_enc.c" />
+    <ClCompile Include="GSF\gsf_indx.c" />
+    <ClCompile Include="kriging.cpp" />
+    <ClCompile Include="LatLong-UTMconversion.cpp" />
+    <ClCompile Include="MB_Threads.cpp" />
+    <ClCompile Include="MB_ZGrid\mb_zgrid.c" />
+    <ClCompile Include="mergeBathy.cpp" />
+    <ClCompile Include="mergeBathyOld.cpp" />
+    <ClCompile Include="NR\computational_geometry_algo_interp.cpp" />
+    <ClCompile Include="regr_xzw.cpp" />
+    <ClCompile Include="rng.cpp" />
+    <ClCompile Include="scalecInterp.cpp" />
+    <ClCompile Include="scalecInterpPerturbations.cpp" />
+    <ClCompile Include="scalecInterpTile.cpp" />
+    <ClCompile Include="standardOperations.cpp" />
+    <ClCompile Include="subSampleData.cpp" />
+    <ClCompile Include="xmlWriter.cpp">
+      <BrowseInformation Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</BrowseInformation>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ALG\alglibinternal.h" />
+    <ClInclude Include="ALG\alglibmisc.h" />
+    <ClInclude Include="ALG\ap.h" />
+    <ClInclude Include="ALG\dataanalysis.h" />
+    <ClInclude Include="ALG\diffequations.h" />
+    <ClInclude Include="ALG\fasttransforms.h" />
+    <ClInclude Include="ALG\integration.h" />
+    <ClInclude Include="ALG\interpolation.h" />
+    <ClInclude Include="ALG\linalg.h" />
+    <ClInclude Include="ALG\optimization.h" />
+    <ClInclude Include="ALG\solvers.h" />
+    <ClInclude Include="ALG\specialfunctions.h" />
+    <ClInclude Include="ALG\statistics.h" />
+    <ClInclude Include="ALG\stdafx.h" />
+    <ClInclude Include="bathyTool.h" />
+    <ClInclude Include="computeOffset.h" />
+    <ClInclude Include="consistentWeights.h" />
+    <ClInclude Include="constants.h" />
+    <ClInclude Include="Error_Estimator\geom.h" />
+    <ClInclude Include="Error_Estimator\GradientGrid.h" />
+    <ClInclude Include="Error_Estimator\mesh.h" />
+    <ClInclude Include="Error_Estimator\pingList.h" />
+    <ClInclude Include="Error_Estimator\pointList.h" />
+    <ClInclude Include="Error_Estimator\sHullDelaunay.h" />
+    <ClInclude Include="Error_Estimator\Bathy_Grid.h" />
+    <ClInclude Include="Error_Estimator\vincenty.h" />
+    <ClInclude Include="externalInterpolators.h" />
+    <ClInclude Include="fileBagWriter.h" />
+    <ClInclude Include="fileReader.h" />
+    <ClInclude Include="fileWriter.h" />
+    <ClInclude Include="GMT_Surface\processSurface.h" />
+    <ClInclude Include="GMT_Surface\surf.h" />
+    <ClInclude Include="GMT_Surface\version.h" />
+    <ClInclude Include="grid.h" />
+    <ClInclude Include="GSF\ellipsoid.h" />
+    <ClInclude Include="GSF\geod.h" />
+    <ClInclude Include="GSF\geodesic.h" />
+    <ClInclude Include="GSF\gsf.h" />
+    <ClInclude Include="GSF\gsfReader.h" />
+    <ClInclude Include="GSF\gsfSensorName.h" />
+    <ClInclude Include="GSF\gsf_dec.h" />
+    <ClInclude Include="GSF\gsf_enc.h" />
+    <ClInclude Include="GSF\gsf_ft.h" />
+    <ClInclude Include="GSF\gsf_indx.h" />
+    <ClInclude Include="inFileStructs.h" />
+    <ClInclude Include="kriging.h" />
+    <ClInclude Include="LatLong-UTMconversion.h" />
+    <ClInclude Include="MB_Threads.h" />
+    <ClInclude Include="MB_ZGrid\mb_define.h" />
+    <ClInclude Include="MB_ZGrid\mb_zgrid.h" />
+    <ClInclude Include="mergeBathy.h" />
+    <ClInclude Include="mergeBathyOld.h" />
+    <ClInclude Include="NR\computational_geometry_algo_interp.h" />
+    <ClInclude Include="NR\interp_1d.h" />
+    <ClInclude Include="NR\interp_2d.h" />
+    <ClInclude Include="NR\interp_curve.h" />
+    <ClInclude Include="NR\interp_laplace.h" />
+    <ClInclude Include="NR\interp_linear.h" />
+    <ClInclude Include="NR\interp_rbf.h" />
+    <ClInclude Include="NR\krig.h" />
+    <ClInclude Include="NR\linbcg.h" />
+    <ClInclude Include="NR\ludcmp.h" />
+    <ClInclude Include="NR\nr3.h" />
+    <ClInclude Include="NR\polcoef.h" />
+    <ClInclude Include="NR\targetver.h" />
+    <ClInclude Include="outFileStructs.h" />
+    <ClInclude Include="regr_xzw.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="rng.h" />
+    <ClInclude Include="scalecInterp.h" />
+    <ClInclude Include="scalecInterpPerturbations.h" />
+    <ClInclude Include="standardOperations.h" />
+    <ClInclude Include="subSampleData.h" />
+    <ClInclude Include="supportedFileTypes.h" />
+    <ClInclude Include="WarningStates.h" />
+    <ClInclude Include="xmlWriter.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="mergeBathy.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
