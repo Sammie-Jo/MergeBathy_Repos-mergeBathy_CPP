@@ -210,8 +210,10 @@ int scalecInterp(vector< vector<double> > *subsampledData, vector<double> *xInte
 		x0_idx.push_back(x0[ii]);
 		y0_idx.push_back(y0[ii]);
 
-		x_idxKriged.push_back((*subsampledData)[0][ii]);
-		y_idxKriged.push_back((*subsampledData)[1][ii]);
+		/*x_idxKriged.push_back((*subsampledData)[0][ii]);
+		y_idxKriged.push_back((*subsampledData)[1][ii]);*/
+		x_idxKriged.push_back((*subsampledData)[0][ii] * Lx); //SJZ
+		y_idxKriged.push_back((*subsampledData)[1][ii] * Ly);
 	}
 
 	//Get the estimators to perform
@@ -693,36 +695,42 @@ int scalecInterp_Process5A(SCALEC_DATA_POINTER sdp, const int curIterNum, const 
 		//When tile is sufficiently large enough, krige it.
 		if (sdp->x_idxKriged->size() >= 15)
 		{
+			int KRIG_SUBTILE_FLAG = 0;
 			//5. We need to subtile the kriged indexes; otherwise the matrix inversion takes too long -- TODO
 			if(sdp->x_idxKriged->size() > KRIGED_SIZE_THRESHOLD)
 			{
+				KRIG_SUBTILE_FLAG = 1;
 				#pragma region --Subtile Kriged Indices
-				
-				//Too large, need to subtile.
-				//6. Krige the residuals
-				//_PreComputeTile calls _PostCompute from within
-				ordinaryKrigingOfResiduals_PreComputeTile(&*sdp->x_idxKriged, &*sdp->y_idxKriged, sdp->residualObservationsKrigedZ, &xIndexKriged_Vector, &yIndexKriged_Vector, locSpacingX, locSpacingY, &outputDepthKrig, &outputErrorKrig);
-
-				sdp->outData->depth = outputDepthKrig;
-				sdp->outData->error = outputErrorKrig;
-
-				if(sdp->PROP_UNCERT)
+				try
 				{
-					ordinaryKrigingOfResiduals_PreComputeTile(&*sdp->x_idxKriged, &*sdp->y_idxKriged, sdp->residualObservationsKrigedZ0, &xIndexKriged_Vector, &yIndexKriged_Vector, locSpacingX, locSpacingY, &outputDepth0Krig, &outputError0Krig);
-				
-					sdp->outData->depth0 = outputDepth0Krig;
-					sdp->outData->error0 = outputError0Krig;
+					//Too large, need to subtile.
+					//6. Krige the residuals
+					//_PreComputeTile calls _PostCompute from within
+					ordinaryKrigingOfResiduals_PreComputeTile(&*sdp->x_idxKriged, &*sdp->y_idxKriged, sdp->residualObservationsKrigedZ, &xIndexKriged_Vector, &yIndexKriged_Vector, locSpacingX, locSpacingY, &outputDepthKrig, &outputErrorKrig);
+					sdp->outData->depth = outputDepthKrig;
+					sdp->outData->error = outputErrorKrig;
+
+					if (sdp->PROP_UNCERT)
+					{
+						ordinaryKrigingOfResiduals_PreComputeTile(&*sdp->x_idxKriged, &*sdp->y_idxKriged, sdp->residualObservationsKrigedZ0, &xIndexKriged_Vector, &yIndexKriged_Vector, locSpacingX, locSpacingY, &outputDepth0Krig, &outputError0Krig);
+						sdp->outData->depth0 = outputDepth0Krig;
+						sdp->outData->error0 = outputError0Krig;
+					}
+					if (sdp->KALMAN)
+					{
+						ordinaryKrigingOfResiduals_PreComputeTile(&*sdp->x_idxKriged, &*sdp->y_idxKriged, sdp->residualObservationsKrigedZK, &xIndexKriged_Vector, &yIndexKriged_Vector, locSpacingX, locSpacingY, &outputDepthKKrig, &outputErrorKKrig);
+						sdp->outData->depthK = outputDepthKKrig;
+						sdp->outData->errorK = outputErrorKKrig;
+					}
 				}
-				if(sdp->KALMAN)
-				{
-					ordinaryKrigingOfResiduals_PreComputeTile(&*sdp->x_idxKriged, &*sdp->y_idxKriged, sdp->residualObservationsKrigedZK, &xIndexKriged_Vector, &yIndexKriged_Vector, locSpacingX, locSpacingY, &outputDepthKKrig, &outputErrorKKrig);
-
-					sdp->outData->depthK = outputDepthKKrig;
-					sdp->outData->errorK = outputErrorKKrig;
+				catch (exception &e) {
+					cout << "An exception occurred. Exception Thrown: " << e.what() << '\n';
+					cout << "Kriging Subtiles failed.  Will try kriging without subtiles.  This will take longer." << endl;
+					KRIG_SUBTILE_FLAG = 0;
 				}
 				#pragma endregion
 			}
-			else
+			if(!KRIG_SUBTILE_FLAG)
 			{
 				#pragma region --Do Not Subtile Kriged Indices
 				//small enough to do all at once
@@ -1026,22 +1034,32 @@ int scalecInterp_ProcessKrig(SCALEC_DATA_POINTER sdp, const int curIterNum, cons
 		//When tile is sufficiently large enough, krige it.
 		if (subX_indexKriged.size() >= 15)
 		{
+			int KRIG_SUBTILE_FLAG = 0;
 			//5. We need to subtile the kriged indexes; otherwise the matrix inversion takes too long -- TODO
 			if(subX_indexKriged.size() > KRIGED_SIZE_THRESHOLD)
 			{
+				KRIG_SUBTILE_FLAG = 1;
 				#pragma region --Subtile Kriged Indices
-				//Too large, need to subtile.
-				//6. Krige the residuals
-				//_PreComputeTile calls _PostCompute from within
-				ordinaryKrigingOfResiduals_PreComputeTile(&subX_indexKriged, &subY_indexKriged, &residualObservationsKrigedZ, &xIndexKriged_Vector, &yIndexKriged_Vector, locSpacingX, locSpacingY, &outputDepthKrig, &outputErrorKrig);
+				try
+				{
+					//Too large, need to subtile.
+					//6. Krige the residuals
+					//_PreComputeTile calls _PostCompute from within
+					ordinaryKrigingOfResiduals_PreComputeTile(&subX_indexKriged, &subY_indexKriged, &residualObservationsKrigedZ, &xIndexKriged_Vector, &yIndexKriged_Vector, locSpacingX, locSpacingY, &outputDepthKrig, &outputErrorKrig);
 
-				if(sdp->PROP_UNCERT)
-					ordinaryKrigingOfResiduals_PreComputeTile(&subX_indexKriged, &subY_indexKriged, &residualObservationsKrigedZ0, &xIndexKriged_Vector, &yIndexKriged_Vector, locSpacingX, locSpacingY, &outputDepth0Krig, &outputError0Krig);
-				if(sdp->KALMAN)
-					ordinaryKrigingOfResiduals_PreComputeTile(&subX_indexKriged, &subY_indexKriged, &residualObservationsKrigedZK, &xIndexKriged_Vector, &yIndexKriged_Vector, locSpacingX, locSpacingY, &outputDepthKKrig, &outputErrorKKrig);
+					if(sdp->PROP_UNCERT)
+						ordinaryKrigingOfResiduals_PreComputeTile(&subX_indexKriged, &subY_indexKriged, &residualObservationsKrigedZ0, &xIndexKriged_Vector, &yIndexKriged_Vector, locSpacingX, locSpacingY, &outputDepth0Krig, &outputError0Krig);
+					if(sdp->KALMAN)
+						ordinaryKrigingOfResiduals_PreComputeTile(&subX_indexKriged, &subY_indexKriged, &residualObservationsKrigedZK, &xIndexKriged_Vector, &yIndexKriged_Vector, locSpacingX, locSpacingY, &outputDepthKKrig, &outputErrorKKrig);
+				}
+				catch (exception &e) {
+					cout << "An exception occurred. Exception Thrown: " << e.what() << '\n';
+					cout << "Kriging Subtiles failed.  Will try kriging without subtiles.  This will take longer." << endl;
+					KRIG_SUBTILE_FLAG = 0;
+				}
 				#pragma endregion
 			}
-			else
+			if(!KRIG_SUBTILE_FLAG)
 			{
 				#pragma region --Do Not Subtile Kriged Indices
 				//small enough to do all at once
@@ -1673,22 +1691,32 @@ int scalecInterp_Process2A(SCALEC_DATA_POINTER sdp, const int curIterNum, const 
 		//When tile is sufficiently large enough, krige it.
 		if (subX_indexKriged.size() >= 15)
 		{
+			int KRIG_SUBTILE_FLAG = 0;
 			//5. We need to subtile the kriged indexes; otherwise the matrix inversion takes too long -- TODO
 			if(subX_indexKriged.size() > KRIGED_SIZE_THRESHOLD)
 			{
+				KRIG_SUBTILE_FLAG = 1;
 				#pragma region --Subtile Kriged Indices
-				//Too large, need to subtile.
-				//6. Krige the residuals
-				//_PreComputeTile calls _PostCompute from within
-				ordinaryKrigingOfResiduals_PreComputeTile(&subX_indexKriged, &subY_indexKriged, &residualObservationsKrigedZ, &xIndexKriged_Vector, &yIndexKriged_Vector, locSpacingX, locSpacingY, &outputDepthKrig, &outputErrorKrig);
+				try
+				{
+					//Too large, need to subtile.
+					//6. Krige the residuals
+					//_PreComputeTile calls _PostCompute from within
+					ordinaryKrigingOfResiduals_PreComputeTile(&subX_indexKriged, &subY_indexKriged, &residualObservationsKrigedZ, &xIndexKriged_Vector, &yIndexKriged_Vector, locSpacingX, locSpacingY, &outputDepthKrig, &outputErrorKrig);
 
-				if(sdp->PROP_UNCERT)
-					ordinaryKrigingOfResiduals_PreComputeTile(&subX_indexKriged, &subY_indexKriged, &residualObservationsKrigedZ0, &xIndexKriged_Vector, &yIndexKriged_Vector, locSpacingX, locSpacingY, &outputDepth0Krig, &outputError0Krig);
-				if(sdp->KALMAN)
-					ordinaryKrigingOfResiduals_PreComputeTile(&subX_indexKriged, &subY_indexKriged, &residualObservationsKrigedZK, &xIndexKriged_Vector, &yIndexKriged_Vector, locSpacingX, locSpacingY, &outputDepthKKrig, &outputErrorKKrig);
+					if(sdp->PROP_UNCERT)
+						ordinaryKrigingOfResiduals_PreComputeTile(&subX_indexKriged, &subY_indexKriged, &residualObservationsKrigedZ0, &xIndexKriged_Vector, &yIndexKriged_Vector, locSpacingX, locSpacingY, &outputDepth0Krig, &outputError0Krig);
+					if(sdp->KALMAN)
+						ordinaryKrigingOfResiduals_PreComputeTile(&subX_indexKriged, &subY_indexKriged, &residualObservationsKrigedZK, &xIndexKriged_Vector, &yIndexKriged_Vector, locSpacingX, locSpacingY, &outputDepthKKrig, &outputErrorKKrig);
+				}
+				catch (exception &e) {
+					cout << "An exception occurred. Exception Thrown: " << e.what() << '\n';
+					cout << "Kriging Subtiles failed.  Will try kriging without subtiles.  This will take longer." << endl;
+					KRIG_SUBTILE_FLAG = 0;
+				}
 				#pragma endregion
 			}
-			else
+			if(!KRIG_SUBTILE_FLAG)
 			{
 				#pragma region --Do Not Subtile Kriged Indices
 				//small enough to do all at once

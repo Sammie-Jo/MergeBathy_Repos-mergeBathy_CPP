@@ -612,8 +612,10 @@ int scalecInterpTile_ProcessA(SCALEC_TILE_DATA_POINTER stdp, const int curIterNu
 						
 						if(stdp->KRIGING)
 						{
-							subX_idyKriged.push_back((*stdp->subsampledData)[0][idx[i]]); //x for kriging
-							subY_idyKriged.push_back((*stdp->subsampledData)[1][idx[i]]);
+							//subX_idyKriged.push_back((*stdp->subsampledData)[0][idx[i]]); //x for kriging
+							//subY_idyKriged.push_back((*stdp->subsampledData)[1][idx[i]]);
+							subX_idyKriged.push_back((*stdp->subsampledData)[0][idx[i]] * (*stdp->Lx)); //x for kriging SJZ
+							subY_idyKriged.push_back((*stdp->subsampledData)[1][idx[i]] * (*stdp->Ly));
 						}
 						subX0.push_back((*stdp->x0)[idx[i]]);	//scattered input data sub-tile
 						subY0.push_back((*stdp->y0)[idx[i]]);
@@ -749,39 +751,49 @@ int scalecInterpTile_ProcessA(SCALEC_TILE_DATA_POINTER stdp, const int curIterNu
 						#pragma region --ordinaryKrigingOfResiduals_PreCompute, Subtile Kriged Indices if if too large 
 						if (subX_indexKriged.size() >= 15)
 						{
+							int KRIG_SUBTILE_FLAG = 0;
 							//G. We need to subtile the kriged indices otherwise the matrix inversion takes too long -- TODO
 							if(subX_indexKriged.size() > KRIGED_SIZE_THRESHOLD)
 							{
+								KRIG_SUBTILE_FLAG = 1;
 								#pragma region --Subtile Kriged Indices
-								k = 0;
-								xIndexKriged_Vector = vector<double>(outerLoopIndexVector.size()*((*stdp->innerLoopIndexVector)[innerLoop]).size());
-								yIndexKriged_Vector = vector<double>(outerLoopIndexVector.size()*((*stdp->innerLoopIndexVector)[innerLoop]).size());
-								for (int i = 0; i < (const int)outerLoopIndexVector.size(); i++)
+								try
 								{
-									for (int j = 0; j < (const int)((*stdp->innerLoopIndexVector)[innerLoop]).size(); j++)
+									k = 0;
+									xIndexKriged_Vector = vector<double>(outerLoopIndexVector.size()*((*stdp->innerLoopIndexVector)[innerLoop]).size());
+									yIndexKriged_Vector = vector<double>(outerLoopIndexVector.size()*((*stdp->innerLoopIndexVector)[innerLoop]).size());
+									for (int i = 0; i < (const int)outerLoopIndexVector.size(); i++)
 									{
-										iliv_Loc = ((*stdp->innerLoopIndexVector)[innerLoop])[j];
-										oliv_Loc = outerLoopIndexVector[i];
-										xIndexKriged_Vector[k] = (*stdp->xMeshGrid)(iliv_Loc,oliv_Loc);	//kriged indices subtile (interpolation locations)
-										yIndexKriged_Vector[k] = (*stdp->yMeshGrid)(iliv_Loc,oliv_Loc);
-										k++;
+										for (int j = 0; j < (const int)((*stdp->innerLoopIndexVector)[innerLoop]).size(); j++)
+										{
+											iliv_Loc = ((*stdp->innerLoopIndexVector)[innerLoop])[j];
+											oliv_Loc = outerLoopIndexVector[i];
+											xIndexKriged_Vector[k] = (*stdp->xMeshGrid)(iliv_Loc,oliv_Loc);	//kriged indices subtile (interpolation locations)
+											yIndexKriged_Vector[k] = (*stdp->yMeshGrid)(iliv_Loc,oliv_Loc);
+											k++;
 
+										}
 									}
+
+									//cout << "To Tile Call" << endl;
+									ordinaryKrigingOfResiduals_PreComputeTile(&subX_indexKriged, &subY_indexKriged, &residualObservationsKrigedZ, &xIndexKriged_Vector, &yIndexKriged_Vector, locSpacingX, locSpacingY, &outputDepthKrig, &outputErrorKrig);
+
+									if(stdp->PROP_UNCERT)
+										ordinaryKrigingOfResiduals_PreComputeTile(&subX_indexKriged, &subY_indexKriged, &residualObservationsKrigedZ0, &xIndexKriged_Vector, &yIndexKriged_Vector, locSpacingX, locSpacingY, &outputDepth0Krig, &outputError0Krig);
+									if(stdp->KALMAN)
+										ordinaryKrigingOfResiduals_PreComputeTile(&subX_indexKriged, &subY_indexKriged, &residualObservationsKrigedZK, &xIndexKriged_Vector, &yIndexKriged_Vector, locSpacingX, locSpacingY, &outputDepthKKrig, &outputErrorKKrig);
+
+									xIndexKriged_Vector.clear();
+									yIndexKriged_Vector.clear();
 								}
-
-								//cout << "To Tile Call" << endl;
-								ordinaryKrigingOfResiduals_PreComputeTile(&subX_indexKriged, &subY_indexKriged, &residualObservationsKrigedZ, &xIndexKriged_Vector, &yIndexKriged_Vector, locSpacingX, locSpacingY, &outputDepthKrig, &outputErrorKrig);
-
-								if(stdp->PROP_UNCERT)
-									ordinaryKrigingOfResiduals_PreComputeTile(&subX_indexKriged, &subY_indexKriged, &residualObservationsKrigedZ0, &xIndexKriged_Vector, &yIndexKriged_Vector, locSpacingX, locSpacingY, &outputDepth0Krig, &outputError0Krig);
-								if(stdp->KALMAN)
-									ordinaryKrigingOfResiduals_PreComputeTile(&subX_indexKriged, &subY_indexKriged, &residualObservationsKrigedZK, &xIndexKriged_Vector, &yIndexKriged_Vector, locSpacingX, locSpacingY, &outputDepthKKrig, &outputErrorKKrig);
-
-								xIndexKriged_Vector.clear();
-								yIndexKriged_Vector.clear();
+								catch (exception &e) {
+									cout << "An exception occurred. Exception Thrown: " << e.what() << '\n';
+									cout << "Kriging Subtiles failed.  Will try kriging without subtiles.  This will take longer." << endl;
+									KRIG_SUBTILE_FLAG = 0;
+								}
 								#pragma endregion Subtile Kriged Indices
 							}
-							else
+							if(!KRIG_SUBTILE_FLAG)
 							{
 								#pragma region --Do Not Subtile Kriged Indices
 								//small enough to do all at once
@@ -1420,8 +1432,10 @@ int scalecInterpTile_ProcessKrig(SCALEC_TILE_DATA_POINTER stdp, const int curIte
 						subH_idy.push_back((*stdp->subsampledData)[5][idx[i]]);
 						subV_idy.push_back((*stdp->subsampledData)[6][idx[i]]);
 						
-						subX_idyKriged.push_back((*stdp->subsampledData)[0][idx[i]]); //x for kriging
-						subY_idyKriged.push_back((*stdp->subsampledData)[1][idx[i]]);
+						//subX_idyKriged.push_back((*stdp->subsampledData)[0][idx[i]]); //x for kriging
+						//subY_idyKriged.push_back((*stdp->subsampledData)[1][idx[i]]);
+						subX_idyKriged.push_back((*stdp->subsampledData)[0][idx[i]] * (*stdp->Lx)); //x for kriging SJZ
+						subY_idyKriged.push_back((*stdp->subsampledData)[1][idx[i]] * (*stdp->Ly));
 
 						subX0.push_back((*stdp->x0)[idx[i]]);	//scattered input data sub-tile
 						subY0.push_back((*stdp->y0)[idx[i]]);
@@ -1560,39 +1574,48 @@ int scalecInterpTile_ProcessKrig(SCALEC_TILE_DATA_POINTER stdp, const int curIte
 					#pragma region --ordinaryKrigingOfResiduals_PreCompute, Subtile Kriged Indices if if too large 
 					if (subX_indexKriged.size() >= 15)
 					{
+						int KRIG_SUBTILE_FLAG = 0;
 						//G. We need to subtile the kriged indices otherwise the matrix inversion takes too long -- TODO
 						if(subX_indexKriged.size() > KRIGED_SIZE_THRESHOLD)
 						{
+							KRIG_SUBTILE_FLAG = 1;
 							#pragma region --Subtile Kriged Indices
-							k = 0;
-							xIndexKriged_Vector = vector<double>(outerLoopIndexVector.size()*((*stdp->innerLoopIndexVector)[innerLoop]).size());
-							yIndexKriged_Vector = vector<double>(outerLoopIndexVector.size()*((*stdp->innerLoopIndexVector)[innerLoop]).size());
-							for (int i = 0; i < (const int)outerLoopIndexVector.size(); i++)
+							try
 							{
-								for (int j = 0; j < (const int)((*stdp->innerLoopIndexVector)[innerLoop]).size(); j++)
+								k = 0;
+								xIndexKriged_Vector = vector<double>(outerLoopIndexVector.size()*((*stdp->innerLoopIndexVector)[innerLoop]).size());
+								yIndexKriged_Vector = vector<double>(outerLoopIndexVector.size()*((*stdp->innerLoopIndexVector)[innerLoop]).size());
+								for (int i = 0; i < (const int)outerLoopIndexVector.size(); i++)
 								{
-									iliv_Loc = ((*stdp->innerLoopIndexVector)[innerLoop])[j];
-									oliv_Loc = outerLoopIndexVector[i];
-									xIndexKriged_Vector[k] = (*stdp->xMeshGrid)(iliv_Loc,oliv_Loc);	//kriged indices subtile (interpolation locations)
-									yIndexKriged_Vector[k] = (*stdp->yMeshGrid)(iliv_Loc,oliv_Loc);
-									k++;
-
+									for (int j = 0; j < (const int)((*stdp->innerLoopIndexVector)[innerLoop]).size(); j++)
+									{
+										iliv_Loc = ((*stdp->innerLoopIndexVector)[innerLoop])[j];
+										oliv_Loc = outerLoopIndexVector[i];
+										xIndexKriged_Vector[k] = (*stdp->xMeshGrid)(iliv_Loc,oliv_Loc);	//kriged indices subtile (interpolation locations)
+										yIndexKriged_Vector[k] = (*stdp->yMeshGrid)(iliv_Loc,oliv_Loc);
+										k++;
+									}
 								}
+
+								//cout << "To Tile Call" << endl;
+								ordinaryKrigingOfResiduals_PreComputeTile(&subX_indexKriged, &subY_indexKriged, &residualObservationsKrigedZ, &xIndexKriged_Vector, &yIndexKriged_Vector, locSpacingX, locSpacingY, &outputDepthKrig, &outputErrorKrig);
+
+								if(stdp->PROP_UNCERT)
+									ordinaryKrigingOfResiduals_PreComputeTile(&subX_indexKriged, &subY_indexKriged, &residualObservationsKrigedZ0, &xIndexKriged_Vector, &yIndexKriged_Vector, locSpacingX, locSpacingY, &outputDepth0Krig, &outputError0Krig);
+								if(stdp->KALMAN)
+									ordinaryKrigingOfResiduals_PreComputeTile(&subX_indexKriged, &subY_indexKriged, &residualObservationsKrigedZK, &xIndexKriged_Vector, &yIndexKriged_Vector, locSpacingX, locSpacingY, &outputDepthKKrig, &outputErrorKKrig);
+
+								xIndexKriged_Vector.clear();
+								yIndexKriged_Vector.clear();
 							}
-
-							//cout << "To Tile Call" << endl;
-							ordinaryKrigingOfResiduals_PreComputeTile(&subX_indexKriged, &subY_indexKriged, &residualObservationsKrigedZ, &xIndexKriged_Vector, &yIndexKriged_Vector, locSpacingX, locSpacingY, &outputDepthKrig, &outputErrorKrig);
-
-							if(stdp->PROP_UNCERT)
-								ordinaryKrigingOfResiduals_PreComputeTile(&subX_indexKriged, &subY_indexKriged, &residualObservationsKrigedZ0, &xIndexKriged_Vector, &yIndexKriged_Vector, locSpacingX, locSpacingY, &outputDepth0Krig, &outputError0Krig);
-							if(stdp->KALMAN)
-								ordinaryKrigingOfResiduals_PreComputeTile(&subX_indexKriged, &subY_indexKriged, &residualObservationsKrigedZK, &xIndexKriged_Vector, &yIndexKriged_Vector, locSpacingX, locSpacingY, &outputDepthKKrig, &outputErrorKKrig);
-
-							xIndexKriged_Vector.clear();
-							yIndexKriged_Vector.clear();
+							catch (exception &e) {
+								cout << "An exception occurred. Exception Thrown: " << e.what() << '\n';
+								cout << "Kriging Subtiles failed.  Will try kriging without subtiles.  This will take longer." << endl;
+								KRIG_SUBTILE_FLAG = 0;
+							}
 							#pragma endregion Subtile Kriged Indices
 						}
-						else
+						if(!KRIG_SUBTILE_FLAG)
 						{
 							#pragma region --Do Not Subtile Kriged Indices
 							//small enough to do all at once

@@ -304,7 +304,12 @@ void ordinaryKrigingOfResiduals_PreCompute(vector<double> *subX, vector<double> 
 	bVector = vector<double>(riSize+1, 1);
 
 	// Get inverse of W for later use
-	(*invGammaDArray) = dgrid(inv(gammaDArray,0, 'U', true, 'N'));
+	//try {
+		(*invGammaDArray) = dgrid(inv(gammaDArray, 0, 'U', true, 'N'));
+	/*}
+	catch (exception &e) {
+		cout << "An exception occurred. Exception Thrown: " << e.what() << '\n';
+	}*/
 
 	//Clean up variable space
 	distancePrimeArray.clear();
@@ -543,8 +548,8 @@ void ordinaryKrigingOfResiduals_PreComputeTile(vector<double> *subX, vector<doub
 					//cout << "PROCESS CALL" << endl;
 					for (i = 0; i < (const int)idxInterp.size(); i++)
 					{
-						//if ( ((*interpX)[i] >= xmin && (*interpX)[i] <= xmax) && ((*interpY)[i] >= ymin && (*interpY)[i] <= ymax) )
-						if ( (localInterpY[idxInterp[i]] >= ymin2 && localInterpY[idxInterp[i]] < ymax2) )
+						if ( ((*interpX)[i] >= xmin && (*interpX)[i] <= xmax) && ((*interpY)[i] >= ymin && (*interpY)[i] <= ymax) )
+						//if ( (localInterpY[idxInterp[i]] >= ymin2 && localInterpY[idxInterp[i]] < ymax2) )
 						{
 							zKriged = 0.00;
 							varZKriged = 0.00;

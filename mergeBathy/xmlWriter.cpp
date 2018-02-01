@@ -282,7 +282,7 @@ int xmlEditXPath(string &fName, vector<double> *x, vector<double> *y, vector<dou
 
 	// D. Register namespaces from list (if any) 
 	if((!nsList.empty()) && (register_namespaces(xpathCtx, BAD_CAST nsList.c_str()) < 0)) {
-        fprintf(stderr,"Error: failed to register namespaces list \"%s\"\n", nsList);
+        fprintf(stderr,"Error: failed to register namespaces list \"%s\"\n", nsList.c_str());
         xmlXPathFreeContext(xpathCtx); 
         xmlFreeDoc(doc); 
         return(-1);

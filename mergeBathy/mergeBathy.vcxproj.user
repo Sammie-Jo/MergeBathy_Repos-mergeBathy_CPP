@@ -7,20 +7,20 @@
 BAG_HOME=.././configdata</LocalDebuggerEnvironment>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LocalDebuggerCommandArguments>..\output_files\T09C02_CPP_NCEX_100x100m_hv 100 hann ..\..\TEST_CENTER\Test_Set_09_CURVE_Paper\Active_Testing_Site\input_file_lists\input_file_list_NCEX_TestSets_meters_ABS.txt -1548 -2421 0 -1 -nmsei -msri -multiThread 8 -mse 1 -propUncert 1 -inputInMeters -preInterpolatedLocations ..\..\TEST_CENTER\Test_Set_09_CURVE_Paper\Active_Testing_Site\input_file_lists/Scripps_NCEX_TestSet_outGrid.txt 1</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>..\Output_Files\T01C01_CPP_Seamount_8x8m_GMT 520 quadloess ..\..\TEST_CENTER\Test_Set_08_Ensembles\input_file_lists\SeamountCensored7_input_file_list_ABS.txt 16000 16000 0 -1 -nmsei -msri -multiThread 520 -mse 1 -GMTSurface 520  520 ..\Output_Files\T01C01_CPP_Seamount_8x8m_GMT_xyde 0.1 1 2 -2 -inputInMeters -appendFilename -preInterpolatedLocations ..\..\TEST_CENTER\Test_Set_08_Ensembles\input_file_lists\locs-latlon.txt 2 -modelflag</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
     <LocalDebuggerEnvironment>PATH=.././extlibs/libs_win/$(Platform)/$(Configuration);$(PATH)
 BAG_HOME=.././configdata</LocalDebuggerEnvironment>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LocalDebuggerCommandArguments>..\output_files\T01C01_CPP_Seamount_4x4m 4 hann ..\..\TEST_CENTER\Test_Set_08_Ensembles\input_file_lists\Seamount_input_file_list_ABS.txt 16000 16000 0 -1 -nmsei -msri -multiThread 8 -mse 1 -inputInMeters -appendFilename -GMTSurface 4 4 ..\output_files\T01C01_CPP_Seamount_4x4m_GMT_xyde 0.1 1 2 -2 -preInterpolatedLocations ..\..\..\DISSERTATION\Scripts\Matlab_Scripts\synthetic_data\locs-latlon.txt 2</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>..\Output_Files\T01C01_CPP_Seamount_8x8m_GMT 520 quadloess ..\..\TEST_CENTER\Test_Set_08_Ensembles\input_file_lists\SeamountCensored7_input_file_list_ABS.txt 16000 16000 0 -1 -nmsei -msri -multiThread 520 -mse 1 -GMTSurface 520  520 ..\Output_Files\T01C01_CPP_Seamount_8x8m_GMT_xyde 0.1 1 2 -2 -inputInMeters -appendFilename -preInterpolatedLocations ..\..\TEST_CENTER\Test_Set_08_Ensembles\input_file_lists\locs-latlon.txt 2 -modelflag</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
     <LocalDebuggerEnvironment>PATH=.././extlibs/libs_win/$(Platform)/$(Configuration);$(PATH)
 BAG_HOME=.././configdata</LocalDebuggerEnvironment>
     <LocalDebuggerDebuggerType>Auto</LocalDebuggerDebuggerType>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LocalDebuggerCommandArguments>..\output_files\T01C01_CPP_Seamount_4x4m 4 hann ..\..\TEST_CENTER\Test_Set_08_Ensembles\input_file_lists\Seamount_input_file_list_ABS.txt 16000 16000 0 -1 -nmsei -msri -multiThread 8 -mse 1 -inputInMeters -appendFilename  -GMTSurface 4 4 ..\output_files\T01C01_CPP_Seamount_4x4m_GMT_xyde 0.1 1 2 -2 -outputBagFile</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>..\Output_Files\T04C01_CPP_TestOutPut-PORTO_primeMeridianEquator185x185m 1085 hann ..\..\TEST_CENTER\Test_Set_04_ZoneCrossing\input_file_lists\porto_primeMeridianEquator_input_list_ABS.txt 0 0 0 -1 -nmsei -msri -nnInterp -multiThread 8 -printMatlabMatch -mse -1 -GMTSurface 400 400 ..\Output_Files\T04C01_CPP_TestOutPut-PORTO_primeMeridianEquator185x185m_GMT_xyz 0.1 1 2 -2</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
     <LocalDebuggerDebuggerType>Auto</LocalDebuggerDebuggerType>
     <LocalDebuggerEnvironment>PATH=.././extlibs/libs_win/x86/$(Configuration);$(PATH)
