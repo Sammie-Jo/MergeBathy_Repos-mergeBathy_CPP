@@ -16,6 +16,10 @@ T*.txt
 *.cproject
 *.project
 mergeBathy/mergeBathy.vcxproj.user.orig
+*VC.opendb
+*VC.db
+x64 - Copy/
+x86 - Copy/
 Output_Files/*.txt
 Output_Files/*/*.txt
 *.vsp

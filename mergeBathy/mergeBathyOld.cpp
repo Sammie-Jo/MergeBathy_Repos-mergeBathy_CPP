@@ -3030,21 +3030,24 @@ int run(vector<double> *inputDataX, vector<double> *inputDataY, vector<double> *
 		string fileName = outputFileNameT;
 		string fname;
 		string f;
+		//size_t sz = fileName.size();
+		//fname.reserve(260);
+		//f.reserve(260);
 
 		if(additionalOptions.find("-appendFilename")->second == 1)
 		{
-			//size_t found = fileName.back();
-			size_t found = *fileName.rbegin(); // UNIX
-		
+			////size_t found = fileName.back();
+			//size_t found = *fileName.rbegin(); // UNIX
+
 			//Print results to file and attach the window name used to filename.
 			if(kernelName.compare("hanning") == 0 || kernelName.compare("hann") == 0)
-				fname = fileName.substr(0,found+1).append("hann");
+				fname = fileName.substr(0).append("hann"); //fname = fileName.substr(0,found+1).append("hann");
 			else if (kernelName.compare("boxcar") == 0)
-				fname = fileName.substr(0,found+1).append("boxcar");
+				fname = fileName.substr(0).append("boxcar"); //fname = fileName.substr(0,found+1).append("boxcar");
 			else if (kernelName.compare("quadloess") == 0)
-				fname = fileName.substr(0,found+1).append("quadloess");
+				fname = fileName.substr(0).append("quadloess"); //fname = fileName.substr(0,found+1).append("quadloess");
 			else if (kernelName.compare("loess") == 0)
-				fname = fileName.substr(0,found+1).append("loess");
+				fname = fileName.substr(0).append("loess"); //fname = fileName.substr(0,found+1).append("loess");
 
 			if (additionalOptions.find("-nnInterp")->second == 1)
 				fname = fname.append("_NN");

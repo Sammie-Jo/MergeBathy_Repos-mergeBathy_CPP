@@ -77,8 +77,20 @@ externalInterpolators::externalInterpolators(double NorthingRef, double EastingR
 //************************************************************************************
 bool externalInterpolators::run_MB_ZGrid(vector<double> *x, vector<double> *y, vector<double> *z, vector<double> *e, vector<double> *h, vector<double> *v, double x0, double y0, double x1, double y1, std::map<string, int> additionalOptions, double spacingX, double spacingY, double tension, string z_OutputFileName, int usage, Bathy_Grid* bathyGrid)
 {
-	x0=y0=15800;
-	x1=y1=16200;
+	//There was a loop to perform Monte Carlo Simulations here (see older versions) but this didn't make sense so it was removed. SJZ
+	cout << endl << "***WARNING: externalInterpolators.cpp: Ensemble test cases force x0=y0=15000 and x1=y1=41000. This is hardcoded in and must be fixed or taken out!***" << endl << endl;
+	if (additionalOptions.find("-ensembleTests")->second == 1)
+	{
+		cout << "Ensemble Tests Detected! Values for presplining set!" << endl;
+		cout << "If not performing Ensemble Tests of a seamount and ridge than rename inputfilelist (dir and name) w/o 'Ensemble'" << endl;
+		cout << "Old x0 = y0 =" << x0 << endl;
+		cout << "Old x1 = y1 =" << y1 << endl;
+		x0 = y0 = 15000;// 15800;
+		x1 = y1 = 41000;// 16200;
+		cout << "New x0 = y0 =" << x0 << endl;
+		cout << "New x1 = y1 =" << y1 << endl;
+	}
+
 	//************************************************************************************
 	// 0. Declare local variables and objects
 	//************************************************************************************
@@ -427,8 +439,18 @@ bool externalInterpolators::run_Surface(vector<double> *x, vector<double> *y, ve
 	//I. Call GMT Surface
 	//************************************************************************************
 	//There was a loop to perform Monte Carlo Simulations here (see older versions) but this didn't make sense so it was removed. SJZ
-	x0=y0=15800;
-	x1=y1=16200;
+	cout << endl <<  "***WARNING: externalInterpolators.cpp: Ensemble test cases force x0=y0=15000 and x1=y1=41000. This is hardcoded in and must be fixed or taken out!***" << endl << endl;
+	if (additionalOptions.find("-ensembleTests")->second == 1)
+	{
+		cout << "Ensemble Tests Detected! Values for presplining set!" << endl;
+		cout << "If not performing Ensemble Tests of a seamount and ridge than rename inputfilelist (dir and name) w/o 'Ensemble'" << endl;
+		cout << "Old x0 = y0 =" << x0 << endl;
+		cout << "Old x1 = y1 =" << y1 << endl;
+		x0 = y0 = 15000;// 15800;
+		x1 = y1 = 41000;// 30080; //16200;
+		cout << "New x0 = y0 =" << x0 << endl;
+		cout << "New x1 = y1 =" << y1 << endl;
+	}
 	returnValue = processSurface(xConverted, yConverted, zConverted, (int)(*x).size(), x0, y0, z0, x1, y1, z1, spacingX, spacingY, tension, &xPostSurface, &yPostSurface, &zPostSurface, &postSurfaceSize);
 
 	stopTime = clock();

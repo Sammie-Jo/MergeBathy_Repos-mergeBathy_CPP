@@ -3,6 +3,15 @@
 #include <time.h>
 #include <string>
 #include <string.h> //UNIX
+#ifdef _WIN32
+#include <direct.h>
+#define getcwd _getcwd // stupid MSFT "deprecation" warning
+#else
+#include <unistd.h>
+#define _MAX_PATH FILENAME_MAX
+#define _getcwd getcwd
+//PATH_MAX
+#endif
 
 using namespace std;
 
@@ -629,6 +638,22 @@ int main(char argc, char *argv[])
 		cout << "Improper argument passed to -preInterpolatedLocations. Input must be in meters too. Exiting!" << endl;
 		return ARGS_ERROR;	
 	}*/
+	//Set default to performing Ensemble Tests for dissertation.  This was a quick fix so that prespline algorithms will interpolate to the same grid as specified in the preinterpLocs file
+	char buffer[_MAX_PATH]; string wrkdir;
+	/* Get the current working directory: */
+	if (_getcwd(buffer, _MAX_PATH) == NULL)
+		perror("_getcwd error");
+	else {
+		//printf("%s\n", buffer);
+		cout << "Working dir: " << buffer << endl << endl;
+		wrkdir = buffer;
+	}
+	std::size_t found = inputFileList.find("Ensemble");
+	std::size_t found2 = wrkdir.find("Ensemble");
+	if (found != std::string::npos || found2 != std::string::npos)
+		additionalOptions["-ensembleTests"] = 1;
+	else
+		additionalOptions["-ensembleTests"] = 0;
 
 
 	//************************************************************************************
