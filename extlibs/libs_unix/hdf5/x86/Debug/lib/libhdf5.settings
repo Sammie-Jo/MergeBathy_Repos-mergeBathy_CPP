@@ -4,21 +4,21 @@
 General Information:
 -------------------
 		   HDF5 Version: 1.8.9
-		  Configured on: Thu Dec 18 12:49:17 CST 2014
-		  Configured by: sam@odessey.nrlssc.navy.mil
-		 Configure mode: production
+		  Configured on: Fri Feb  2 10:43:24 CST 2018
+		  Configured by: sam@localhost.localdomain
+		 Configure mode: development
 		    Host system: i686-redhat-linux-gnu
-	      Uname information: Linux odessey.nrlssc.navy.mil 2.6.32-504.1.3.el6.x86_64 #1 SMP Fri Oct 31 11:37:10 EDT 2014 x86_64 x86_64 x86_64 GNU/Linux
+	      Uname information: Linux localhost.localdomain 3.10.0-693.el7.x86_64 #1 SMP Tue Aug 22 21:09:27 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
 		       Byte sex: little-endian
 		      Libraries: 
 	     Installation point: /home/sam/Desktop/OpenNS_Release_1.5.3/extlibs/installs/hdf5/x86/Debug
 
 Compiling Options:
 ------------------
-               Compilation Mode: production
-                     C Compiler: /usr/bin/gcc ( gcc (GCC) 4.4.7 20120313 )
+               Compilation Mode: development
+                     C Compiler: /usr/bin/gcc ( gcc (GCC) 4.8.5 20150623 )
                          CFLAGS: -m32
-                      H5_CFLAGS: -std=c99 -pedantic -Wall -Wextra -Wundef -Wshadow -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wconversion -Waggregate-return -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -Wnested-externs -Winline -Wno-long-long -Wfloat-equal -Wmissing-format-attribute -Wmissing-noreturn -Wpacked -Wdisabled-optimization -Wformat=2 -Wunreachable-code -Wendif-labels -Wdeclaration-after-statement -Wold-style-definition -Winvalid-pch -Wvariadic-macros -Wnonnull -Winit-self -Wmissing-include-dirs -Wswitch-default -Wswitch-enum -Wunused-macros -Wunsafe-loop-optimizations -Wc++-compat -Wstrict-overflow -Wlogical-op -Wlarger-than=2048 -Wvla -Wsync-nand -Wframe-larger-than=16384 -Wpacked-bitfield-compat -O3 -fomit-frame-pointer -finline-functions
+                      H5_CFLAGS: -std=c99 -pedantic -Wall -Wextra -Wundef -Wshadow -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wconversion -Waggregate-return -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -Wnested-externs -Winline -Wfloat-equal -Wmissing-format-attribute -Wmissing-noreturn -Wpacked -Wdisabled-optimization -Wformat=2 -Wendif-labels -Wdeclaration-after-statement -Wold-style-definition -Winvalid-pch -Wvariadic-macros -Winit-self -Wmissing-include-dirs -Wswitch-default -Wswitch-enum -Wunused-macros -Wunsafe-loop-optimizations -Wc++-compat -Wstrict-overflow -Wlogical-op -Wlarger-than=2048 -Wvla -Wsync-nand -Wframe-larger-than=16384 -Wpacked-bitfield-compat -Wstrict-overflow=5 -Wjump-misses-init -Wunsuffixed-float-constants -Wdouble-promotion -Wsuggest-attribute=const -Wtrampolines -Wstack-usage=8192 -Wvector-operation-performance -g -fverbose-asm
                       AM_CFLAGS: 
                        CPPFLAGS: 
                     H5_CPPFLAGS: -D_POSIX_C_SOURCE=199506L   -UNDEBUG -DH5AC_DEBUG -DH5B_DEBUG -DH5B2_DEBUG -DH5D_DEBUG -DH5E_DEBUG -DH5F_DEBUG -DH5G_DEBUG -DH5HG_DEBUG -DH5HL_DEBUG -DH5I_DEBUG -DH5MF_DEBUG -DH5MM_DEBUG -DH5O_DEBUG -DH5P_DEBUG -DH5S_DEBUG -DH5T_DEBUG -DH5V_DEBUG -DH5Z_DEBUG -DH5_DEBUG_API
@@ -29,7 +29,7 @@ Compiling Options:
                         LDFLAGS: -m32
                      H5_LDFLAGS: 
                      AM_LDFLAGS: 
- 	 	Extra libraries:  -lrt -lm 
+ 	 	Extra libraries:  -lm 
  		       Archiver: ar
  		 	 Ranlib: ranlib
  	      Debugged Packages: ac,b,b2,d,e,f,g,hg,hl,i,mf,mm,o,p,s,t,v,z

@@ -17,7 +17,7 @@ old_library='libxml2.a'
 inherited_linker_flags=''
 
 # Libraries that this one depends upon.
-dependency_libs=' -ldl -lm'
+dependency_libs=' -ldl -lz -L/usr/lib//lib -llzma -lm'
 
 # Names of additional weak libraries provided by this library
 weak_library_names=''
