@@ -52,7 +52,7 @@
 
 /* Define if your system has right maximum convert floating-point to unsigned
    long long values. */
-#define H5_FP_TO_ULLONG_RIGHT_MAXIMUM 1
+/* #undef H5_FP_TO_ULLONG_RIGHT_MAXIMUM */
 
 /* Define if gettimeofday() populates the tz pointer passed in */
 #define H5_GETTIMEOFDAY_GIVES_TZ 1
@@ -178,7 +178,7 @@
 
 /* Define if library will contain instrumentation to detect correct
    optimization operation */
-/* #undef H5_HAVE_INSTRUMENTED_LIBRARY */
+#define H5_HAVE_INSTRUMENTED_LIBRARY 1
 
 /* Define to 1 if you have the <inttypes.h> header file. */
 #define H5_HAVE_INTTYPES_H 1
@@ -630,7 +630,7 @@
 #define H5_STDC_HEADERS 1
 
 /* Define if strict file format checks are enabled */
-/* #undef H5_STRICT_FORMAT_CHECKS */
+#define H5_STRICT_FORMAT_CHECKS 1
 
 /* Define if your system supports pthread_attr_setscope(&attribute,
    PTHREAD_SCOPE_SYSTEM) call. */

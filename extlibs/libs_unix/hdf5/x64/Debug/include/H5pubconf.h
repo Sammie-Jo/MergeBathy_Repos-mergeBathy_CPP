@@ -52,7 +52,7 @@
 
 /* Define if your system has right maximum convert floating-point to unsigned
    long long values. */
-#define H5_FP_TO_ULLONG_RIGHT_MAXIMUM 1
+/* #undef H5_FP_TO_ULLONG_RIGHT_MAXIMUM */
 
 /* Define if gettimeofday() populates the tz pointer passed in */
 #define H5_GETTIMEOFDAY_GIVES_TZ 1
