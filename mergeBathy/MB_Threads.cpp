@@ -375,7 +375,7 @@ void mbThreads::joinMBThread()
 	void *res;
 	for (int i = 0; i < numTotalThreads; i++)
 	{
-		int s = pthread_join(hThreadArray[i], NULL);
+		int s = pthread_join(hThreadArray[i], &res); // NULL):
 		if (s == 0)
 			free(res);
 		else cerr << "Error: pthread_join" << endl;

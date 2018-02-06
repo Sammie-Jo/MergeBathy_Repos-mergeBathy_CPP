@@ -115,12 +115,15 @@ else #anything else
 endif
 
 # Optimization and Debug Flags.
-ifeq ($(findstring, Debug, $(CONFIGFLAG)),Debug) #Debug
-	CFLAGS += -D_DEBUG" -Og -Z7 -ggdb -DBOOST_UBLAS_NDEBUG -D_DISABLE_3RDPARTY_WARNINGS=1 -oo
+#ifeq ($(findstring, Debug, $(CONFIGFLAG)),Debug) #Debug
+ifeq ($(CONFIGFLAG),Debug) #Debug
+	CFLAGS += -D_DEBUG -Og -ggdb -DBOOST_UBLAS_NDEBUG -D_DISABLE_3RDPARTY_WARNINGS=1 -oo
 	LDFLAGS += -DEBUG
 	baglib=-lbagd
 	ifeq ($(OS),Windows_NT)
-		CFLAGS += -MDd  
+		CFLAGS += -MDd -Z7 
+	else
+		CFLAGS += -g
 	endif
 else #Release
 	CFLAGS += -DNDEBUG -O2 
