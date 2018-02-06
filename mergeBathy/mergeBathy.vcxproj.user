@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <LocalDebuggerCommandArguments>..\output_files\T01C01_CPP_Seamount_4x4m 4 hann ..\..\TEST_CENTER\Test_Set_08_Ensembles\input_file_lists\Seamount_input_file_list_ABS.txt 16000 16000 0 -1 -nmsei -msri -multiThread 8 -mse 1 -inputInMeters -appendFilename  -GMTSurface 4 4 ..\output_files\T01C01_CPP_Seamount_4x4m_GMT_xyde 0.1 1 2 -2 -outputBagFile</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>..\Output_Files\T01C01_CPP_Seamount_8x8m_GMT 520 quadloess ..\..\TEST_CENTER\Test_Set_08_Ensembles\input_file_lists\SeamountCensored7_input_file_list_ABS.txt 16000 16000 0 -1 -nmsei -msri -multiThread 520 -mse 1 -GMTSurface 520  520 ..\Output_Files\T01C01_CPP_Seamount_8x8m_GMT_xyde 0.1 1 2 -2 -inputInMeters -appendFilename -preInterpolatedLocations ..\..\TEST_CENTER\Test_Set_08_Ensembles\input_file_lists\locs-latlon.txt 2 -modelflag</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
     <LocalDebuggerEnvironment>PATH=.././extlibs/libs_win/x86/$(Configuration);$(PATH)
 BAG_HOME=.././configdata</LocalDebuggerEnvironment>

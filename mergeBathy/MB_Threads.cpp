@@ -150,7 +150,7 @@ void mbThreads::initMBThread_Tile(int runType)
 			ResumeThread();
 			// Sleep to allow thread to run before suspending again.  This
 			// is not necessary but added to see suspension and resume.
-			nanosleep(&time_ns, NULL); 
+			//nanosleep(&time_ns, NULL); 
 
 			if(dwThreadIdArray[i])
 			{
@@ -166,7 +166,7 @@ void mbThreads::initMBThread_Tile(int runType)
 			dwThreadIdArray[i] = pthread_create( &hThreadArray[i], NULL, threadInterpTileKrig, (void *) &pDataArray[i]);
 			locationThreadMap[hThreadArray[i]] = i;
 			ResumeThread();
-			nanosleep(&time_ns, NULL); 
+			//nanosleep(&time_ns, NULL); 
 			if(dwThreadIdArray[i])
 			{
 				fprintf(stderr,"Error - pthread_create() return code: %d\n %s",dwThreadIdArray[i], strerror(dwThreadIdArray[i]));
@@ -242,7 +242,7 @@ void mbThreads::initMBThread(int runType)
 			dwThreadIdArray[i] = pthread_create( &hThreadArray[i], NULL, threadInterp, (void *) &pDataArray2[i]);
 			locationThreadMap[hThreadArray[i]] = i;
 			ResumeThread();
-			nanosleep(&time_ns, NULL); 
+			//nanosleep(&time_ns, NULL); 
 			if(dwThreadIdArray[i])
 			{
 				fprintf(stderr,"Error - pthread_create() return code: %d\n %s",dwThreadIdArray[i], strerror(dwThreadIdArray[i]));
@@ -257,7 +257,7 @@ void mbThreads::initMBThread(int runType)
 			dwThreadIdArray[i] = pthread_create( &hThreadArray[i], NULL, threadInterpKrig, (void *) &pDataArray2[i]);
 			locationThreadMap[hThreadArray[i]] = i;
 			ResumeThread();
-			nanosleep(&time_ns, NULL); 
+			//nanosleep(&time_ns, NULL); 
 			if(dwThreadIdArray[i])
 			{
 				fprintf(stderr,"Error - pthread_create() return code: %d\n %s",dwThreadIdArray[i], strerror(dwThreadIdArray[i]));
@@ -305,7 +305,7 @@ void mbThreads::initMBThread2(int runType)
 			dwThreadIdArray[i] = pthread_create( &hThreadArray[i], NULL, threadInterp2, (void *) &pDataArray2[i]);
 			locationThreadMap[hThreadArray[i]] = i;
 			ResumeThread();
-			nanosleep(&time_ns, NULL); 
+			//nanosleep(&time_ns, NULL); 
 			if(dwThreadIdArray[i])
 			{
 				fprintf(stderr,"Error - pthread_create() return code: %d\n %s",dwThreadIdArray[i], strerror(dwThreadIdArray[i]));
@@ -351,7 +351,7 @@ void mbThreads::initMBThread6(int runType)
 			dwThreadIdArray[i] = pthread_create( &hThreadArray[i], NULL, threadInterp6, (void *) &pDataArray2[i]);
 			locationThreadMap[hThreadArray[i]] = i;
 			ResumeThread();
-			nanosleep(&time_ns, NULL); 
+			//nanosleep(&time_ns, NULL); 
 			if(dwThreadIdArray[i])
 			{
 				fprintf(stderr,"Error - pthread_create() return code: %d\n %s",dwThreadIdArray[i], strerror(dwThreadIdArray[i]));
@@ -372,9 +372,13 @@ void mbThreads::joinMBThread()
 		WaitForSingleObject(hThreadArray[i], INFINITE);
 	}
 #else
+	void *res;
 	for (int i = 0; i < numTotalThreads; i++)
 	{
-		pthread_join(hThreadArray[i], NULL);
+		int s = pthread_join(hThreadArray[i], NULL);
+		if (s == 0)
+			free(res);
+		else cerr << "Error: pthread_join" << endl;
 	}
 #endif
 }
