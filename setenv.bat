@@ -23,7 +23,7 @@ echo Warning: GMT and MBZ pre-splining routines will crash in 32bit for large da
 set /p bitModeID="Select (1) 32bit (2) 64bit : " 
 set /p configModeID="Select (1) Debug (2) Release : "
 set instanceModeID=1
-set /p instanceModeID="Select (1) locally (current instance only) (2) Globally (perminantly in usr envars) : "
+set /p instanceModeID="Select (1) Locally (current instance only) (2) Globally (perminantly in usr envars) : "
 
 if [%bitModeID%] EQU [1] ( 
 	SET mPLATFORM=x86
@@ -48,6 +48,12 @@ goto:endRun
 	echo "Invalid Configuration Selection" 
 	goto:endRun
 
+:setTemps
+	SET BAG_HOME=%~dp0configdata
+	SET MERGEBATHY_DLLS=%~dp0extlibs\libs_win\%mPLATFORM%\%mCONFIGURATION%
+	SET MERGEBATHY_EXE=%~dp0%mPLATFORM%\%mCONFIGURATION%
+	goto:instance
+	
 :instance
 	if [%instanceModeID%] EQU [1] ( 
 		goto:runTemps
@@ -57,6 +63,15 @@ goto:endRun
 	) 
 	echo "Invalid Instance Selection: Local Instance Selected by Default." 
 	goto:runTemps
+
+:runTemps
+	:: Assign usr environment variables
+	if not "%Path:~-1%" == ";" ( 
+		set "Path=%Path%;"
+	)
+	SET UserPath=%Path%%MERGEBATHY_DLLS%;%MERGEBATHY_EXE%
+	SET Path=%UserPath%
+	goto:endRun
 	
 rem Get directly from Windows registry the user PATH variable value.
 :GetUserPath
@@ -65,13 +80,13 @@ rem Get directly from Windows registry the user PATH variable value.
 	for /F "skip=2 tokens=1,2*" %%N in ('%SystemRoot%\System32\reg.exe query "HKCU\Environment" /v "Path" 2^>nul') do (
 		if /I "%%N" == "Path" (
 			set "UserPath=%%P"
-			echo check for semicolon2 = "!UserPath:~-1!"
+			echo Last char on Path = "!UserPath:~-1!"
 			echo.
 			if not "!UserPath:~-1!" == ";" ( 
 				set "UserPath=!UserPath!;"
 			)
 			echo.
-			echo The user PATH is: !UserPath!
+			echo The user PATH is = !UserPath!
 			echo.
 			goto:run
 		)
@@ -83,12 +98,6 @@ rem Get directly from Windows registry the user PATH variable value.
 	echo.
 	goto:run 
 
-:setTemps
-	SET BAG_HOME=%~dp0configdata
-	SET MERGEBATHY_DLLS=%~dp0extlibs\libs_win\%mPLATFORM%\%mCONFIGURATION%
-	SET MERGEBATHY_EXE=%~dp0%mPLATFORM%\%mCONFIGURATION%
-	goto:instance
-	
 :run
 	:: Assign usr environment variables
 	SETX BAG_HOME "%BAG_HOME%"
@@ -99,19 +108,10 @@ rem Get directly from Windows registry the user PATH variable value.
 	SETX Path "%UserPath%"
 	goto:endRun
 	
-:runTemps
-	:: Assign usr environment variables
-	if not "%Path:~-1%" == ";" ( 
-		set "Path=%Path%;"
-	)
-	SET UserPath=%Path%%MERGEBATHY_DLLS%;%MERGEBATHY_EXE%
-	SET Path=%UserPath%
-	goto:endRun
-	
 :endRun
 	::pause
 	echo.
-	call echo BAG_HOME = %BAG_HOME%
+	echo BAG_HOME = %BAG_HOME%
 	echo.
 	echo MERGEBATHY_DLLS = %MERGEBATHY_DLLS%
 	echo.
