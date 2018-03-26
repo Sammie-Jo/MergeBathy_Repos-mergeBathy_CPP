@@ -289,7 +289,7 @@ int subsampleData(vector<double> *inputDataX, vector<double> *inputDataY, vector
 			JiNew[count] = Ji(i,0); //Ji(cnt) = Jisort(i)
 		}
 
-		cur_position=Ji(i,1);
+		cur_position = (int)Ji(i,1);
 		vval=(*inputDataVErr)[(int)Ji(i,1)];
 		hval=(*inputDataVErr)[(int)Ji(i,1)];
 

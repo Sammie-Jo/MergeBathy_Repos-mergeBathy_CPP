@@ -562,7 +562,7 @@ int scalecInterp_Process4A(SCALEC_DATA_POINTER sdp, const int curIterNum, const 
 {
 	double dmin = NaN;	//Non-gridded output assumed
 
-	double tgs0 = 1.0, tgs1, tgs2;
+	double tgs0 = 1.0;// , tgs1, tgs2;
 	double tgs1_Compute;
 	double tgs2_Compute;
 	//double assnGridValue;

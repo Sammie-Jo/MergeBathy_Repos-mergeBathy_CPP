@@ -250,7 +250,8 @@ bool Bathy_Grid::ensemble()
 	//be ignored for calculations.  These rows
 	//are in the beginning and provide extra lats for 1 extra lon.
 	//**This is believed to be fixed;verify before removing! SJZ 12/28/15.
-	int i, k, j, diff,temp=0;//,n,h;
+	int i, k, j, diff = 0;
+	double temp = 0;//,n,h;
 	InterpGrid *kInd;
 	int cnt = (const int)interpGrids.size();//3;// {MBZ,GMT,ALG} //
 	double sigma = 0, sigma2 = 0, sigma3 = 0, sigma4 = 0, sigma5 = 0;

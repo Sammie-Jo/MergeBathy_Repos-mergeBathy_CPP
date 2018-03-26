@@ -984,7 +984,7 @@ int readARC_ASCII_RASTER(string &fileName, BOUNDING_BOX bbox, vector<TRUE_DATA> 
 	string fileNameTemp;
 	ifstream inFile;
 	char *next_token;
-	double error,hvError;
+	double error;// , hvError;
 
 	//A. Parse out the user weighting
 	next_token = NULL;

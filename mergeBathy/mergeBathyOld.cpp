@@ -2940,8 +2940,8 @@ int run(vector<double> *inputDataX, vector<double> *inputDataY, vector<double> *
 					//remove only edge extrapolation effects
 					for(int cnt = 0; cnt < (const int)neiTemp2.size(); cnt++)
 					{
-						if(neiTemp2[cnt] < 0 )
-							int stop;
+						//if(neiTemp2[cnt] < 0 )
+						//	int stop;
 						if(neiTemp2[cnt] > nescale || neiTemp2[cnt] < 0 )
 						{ //really poor samples
 							depthTemp2[cnt] = NaN;
