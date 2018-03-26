@@ -8,7 +8,7 @@ echo.
 echo ***********************************************
 echo * setenv.bat
 echo * This script will set the usr environment variables to run MergeBathy.
-echo * If set globally, environment variables are set perminantly.
+echo * If set globally, environment variables are set permanently.
 echo * If set locally, environment variables are set only for the current terminal/cmd window.
 echo * 
 echo * To work in both x86 and x64, and both Debug and Release,
@@ -23,7 +23,7 @@ echo Warning: GMT and MBZ pre-splining routines will crash in 32bit for large da
 set /p bitModeID="Select (1) 32bit (2) 64bit : " 
 set /p configModeID="Select (1) Debug (2) Release : "
 set instanceModeID=1
-set /p instanceModeID="Select (1) Locally (current instance only) (2) Globally (perminantly in usr envars) : "
+set /p instanceModeID="Select (1) Locally (current instance only) (2) Globally (permanently in usr envars) : "
 
 if [%bitModeID%] EQU [1] ( 
 	SET mPLATFORM=x86
