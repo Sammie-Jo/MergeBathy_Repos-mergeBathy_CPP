@@ -276,14 +276,14 @@ clean :
 # Makes the output directory.
 ${BINDIR} :
 	if [ ! -d "$(BINDIR)" ];then     \
-                mkdir -p $(BINDIR);           \
-        fi
+		mkdir -p $(BINDIR);          \
+	fi
 
 # Makes the intermediate directory.
 ${INTERMEDIATE_DIR} :
 	if [ ! -d "$(INTERMEDIATE_DIR)" ];then     \
-                mkdir -p $(INTERMEDIATE_DIR);           \
-        fi
+		mkdir -p $(INTERMEDIATE_DIR);          \
+	fi
 
 #ALG_OBJS
 ${INTERMEDIATE_DIR}/%.o : ./mergeBathy/ALG/%.cpp
