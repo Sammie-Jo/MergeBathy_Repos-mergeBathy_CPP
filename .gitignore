@@ -1,3 +1,6 @@
+mergeBathy/NR/
+mergeBathy/x86/
+mergeBathy/x64/
 .hg*
 *.jpg
 *.ipch
