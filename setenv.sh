@@ -21,7 +21,7 @@ echo "***********************************************"
 echo "* setenv.bat"
 echo "* This script will set the usr environment variables to run MergeBathy."
 echo "* If set globally, environment variables are set permanently."
-echo "* If set locally, environment variables are set only for the current terminal/cmd window."
+echo "* If set locally, environment variables are set only for the current session. Restart required to reset."
 echo "* "
 echo "* To work in both x86 and x64, and both Debug and Release,"
 echo "* set environment variables locally for a single terminal/cmd instance."
@@ -93,8 +93,10 @@ else
 	sed -i '/export MERGEBATHY_EXE=/c\' ~/.bashrc
 	
 	# delete vars appended to PATH if found
-	sed -ie '/export PATH/s/$MERGEBATHY_DLLS:$MERGEBATHY_EXE//g' ~/.bashrc
-	sed -ie '/export LD_LIBRARY_PATH/s/:$MERGEBATHY_DLLS//g' ~/.bashrc	
+	sed -ie '/export PATH/s/"$MERGEBATHY_DLLS":"$MERGEBATHY_EXE"//g' ~/.bashrc
+	sed -ie '/export LD_LIBRARY_PATH/s/:"$MERGEBATHY_DLLS"//g' ~/.bashrc	
+	PATH=`echo $PATH | sed -e 's/:"$MERGEBATHY_DLLS":"$MERGEBATHY_EXE"$//g'`
+	#echo PATH=$PATH
 
 	num=$(grep -n 'export PATH' ~/.bashrc | awk -F: '{print $1}')
 	# Assign usr environment variables
@@ -113,8 +115,8 @@ else
 	UserPATH=$PATH:$MERGEBATHY_DLLS:$MERGEBATHY_EXE
 	
 	# Append to PATH if exists else write PATH to .bashrc
-	grep -q 'export PATH' ~/.bashrc && sed -i '/export PATH=/ s/$/:$MERGEBATHY_DLLS:$MERGEBATHY_EXE/' ~/.bashrc  || echo 'export PATH=$PATH:$MERGEBATHY_DLLS:$MERGEBATHY_EXE' >> ~/.bashrc 
-	grep -q 'export LD_LIBRARY_PATH' ~/.bashrc && sed -i '/export LD_LIBRARY_PATH=/ s/$/:$MERGEBATHY_DLLS/' ~/.bashrc  || echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MERGEBATHY_DLLS' >> ~/.bashrc 
+	grep -q 'export PATH' ~/.bashrc && sed -i '/export PATH=/ s/$/:"$MERGEBATHY_DLLS":"$MERGEBATHY_EXE"/' ~/.bashrc  || echo 'export PATH=$PATH:"$MERGEBATHY_DLLS":"$MERGEBATHY_EXE"' >> ~/.bashrc 
+	grep -q 'export LD_LIBRARY_PATH' ~/.bashrc && sed -i '/export LD_LIBRARY_PATH=/ s/$/:"$MERGEBATHY_DLLS"/' ~/.bashrc  || echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH":"$MERGEBATHY_DLLS"' >> ~/.bashrc 
 	sed -i 's/::/:/g' ~/.bashrc
 	sed -i 's/::/:/g' ~/.bashrc
 fi
@@ -130,6 +132,9 @@ echo UserPATH = ;echo $PATH ;echo
 echo
 echo "Verify by typing (when setting globally, open new terminal):"
 echo "		mergeBathy"
+echo
+echo "if permission denied try: chmod 777 -R ./x64/* ./x86/*"
+echo
 echo
 
 wait
