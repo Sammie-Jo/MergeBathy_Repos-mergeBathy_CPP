@@ -1,6 +1,31 @@
-This file contains Quick Install instructions for MergeBathy_CPP.  
 **********************************************************************
-The user should refer to mergeBathy_install.rtf in MergeBathy_Repos-mergeBathy_DOCS for detailed instructions.
+CC0 License
+**********************************************************************
+MergeBathy - Tool to combine one or more bathymetric data files onto a single input grid.
+Written in 2015 by Samantha Zambo (samantha.zambo@gmail.com) while employed by the U.S. Naval Research Laboratory.
+Written in 2015 by Todd Holland while employed by the U.S. Naval Research Laboratory.
+Written in 2015 by Nathaniel Plant while employed by the U.S. Naval Research Laboratory.
+Written in 2015 by Kevin Duvieilh while employed by the U.S. Naval Research Laboratory.
+Written in 2015 by Paul Elmore while employed by the U.S. Naval Research Laboratory.
+Written in 2015 by Will Avera while employed by the U.S. Naval Research Laboratory.
+Written in 2015 by Brian Bourgeois while employed by the U.S. Naval Research Laboratory.
+Written in 2015 by A. Louise Perkins while employed by the U.S. Naval Research Laboratory.
+Written in 2015 by David Lalejini (samantha.zambo@gmail.com) while employed by the U.S. Naval Research Laboratory.
+To the extent possible under law, the author(s) and the U.S. Naval Research Laboratory have dedicated all copyright and related and neighboring rights to this software to the public domain worldwide. This software is distributed without any warranty.
+You should have received a copy of the CC0 Public Domain Dedication along with this software. If not, see <http://creativecommons.org/publicdomain/zero/1.0/>.
+
+**********************************************************************
+This ReadMe.txt is for the MergeBathy Software Suite.
+**********************************************************************
+Developed in C++, MergeBathy (2015) is cross-platform and multi-threaded software suite for constructing digital bathymetric models.  
+It provides the user with a set of modelling tools to construct custom bathymetric surfaces, including splines-in-tension routines for interpolation output or as an intermediate resampling step when merging multiple bathymetry data sets.  
+Notable to MergeBathy is its user-friendly and flexible processing options made possible from its integrated bathymetric process framework.  
+See OSP Publication MergeBathy (2015).
+
+**********************************************************************
+This file contains Quick Install instructions for MergeBathy_CPP.  
+	The user should refer to mergeBathy_install.rtf in MergeBathy_Repos-mergeBathy_DOCS for detailed instructions.
+
 **********************************************************************
 Download & Install:
 	Please download the following repositories in the same directory as /mergeBathy_CPP

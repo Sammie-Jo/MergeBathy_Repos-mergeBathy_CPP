@@ -43,9 +43,6 @@
     <Filter Include="Source Files\NR">
       <UniqueIdentifier>{2424f84e-8e2c-441f-98c3-9f189708d69c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\NR">
-      <UniqueIdentifier>{4007b6da-6d56-4711-a16a-3d646a05e9df}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\GMT_Surface">
       <UniqueIdentifier>{2fbebede-d445-4f26-8fe2-39ed5972d318}</UniqueIdentifier>
     </Filter>
@@ -433,45 +430,6 @@
     </ClInclude>
     <ClInclude Include="Error_Estimator\sHullDelaunay.h">
       <Filter>Header Files\Error_Estimator</Filter>
-    </ClInclude>
-    <ClInclude Include="NR\computational_geometry_algo_interp.h">
-      <Filter>Header Files\NR</Filter>
-    </ClInclude>
-    <ClInclude Include="NR\interp_1d.h">
-      <Filter>Header Files\NR</Filter>
-    </ClInclude>
-    <ClInclude Include="NR\interp_2d.h">
-      <Filter>Header Files\NR</Filter>
-    </ClInclude>
-    <ClInclude Include="NR\interp_curve.h">
-      <Filter>Header Files\NR</Filter>
-    </ClInclude>
-    <ClInclude Include="NR\interp_laplace.h">
-      <Filter>Header Files\NR</Filter>
-    </ClInclude>
-    <ClInclude Include="NR\interp_linear.h">
-      <Filter>Header Files\NR</Filter>
-    </ClInclude>
-    <ClInclude Include="NR\interp_rbf.h">
-      <Filter>Header Files\NR</Filter>
-    </ClInclude>
-    <ClInclude Include="NR\krig.h">
-      <Filter>Header Files\NR</Filter>
-    </ClInclude>
-    <ClInclude Include="NR\linbcg.h">
-      <Filter>Header Files\NR</Filter>
-    </ClInclude>
-    <ClInclude Include="NR\ludcmp.h">
-      <Filter>Header Files\NR</Filter>
-    </ClInclude>
-    <ClInclude Include="NR\nr3.h">
-      <Filter>Header Files\NR</Filter>
-    </ClInclude>
-    <ClInclude Include="NR\polcoef.h">
-      <Filter>Header Files\NR</Filter>
-    </ClInclude>
-    <ClInclude Include="NR\targetver.h">
-      <Filter>Header Files\NR</Filter>
     </ClInclude>
     <ClInclude Include="Error_Estimator\GradientGrid.h">
       <Filter>Header Files\Error_Estimator</Filter>
